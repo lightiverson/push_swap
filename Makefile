@@ -4,12 +4,17 @@ objects =	push_swap.o \
 			main.o
 headers =	push_swap.h
 prog =		push_swap
+libft =		libft/libft.a
 
-$(prog) : $(objects)
-			gcc -o $(prog) $(objects)
+$(prog) : $(objects) $(libft)
+			gcc -o $(prog) $(objects) $(libft)
+
+$(libft) :
+			make -C libft
 
 $(objects) : $(sources)
-			gcc $(sources) $(headers) -c
+			gcc $(sources) -c
 
 clean :
 	rm $(prog) $(objects)
+	make fclean -C libft

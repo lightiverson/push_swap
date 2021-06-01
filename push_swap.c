@@ -2,5 +2,5 @@
 
 void push_swap(void)
 {
-    printf("running push_swap()");
+    ft_putstr_fd("running push_swap()", 1);
 }
