@@ -1,20 +1,27 @@
-sources =	push_swap.c \
-			main.c
-objects =	push_swap.o \
+NAME = push_swap
+OBJ_FILES = push_swap.o \
 			main.o
-headers =	push_swap.h
-prog =		push_swap
-libft =		libft/libft.a
+HEADER_FILES = push_swap.h
+LIBFT = libft/libft.a
 
-$(prog) : $(objects) $(libft)
-			gcc -o $(prog) $(objects) $(libft)
+all: $(NAME)
 
-$(libft) :
-			make -C libft
+$(NAME): $(OBJ_FILES) $(LIBFT)
+	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT)
 
-$(objects) : $(sources)
-			gcc $(sources) -c
+%.o: %.c $(HEADER_FILES)
+	$(CC) -c -o $@ $<
 
-clean :
-	rm $(prog) $(objects)
+$(LIBFT):
+	make -C libft
+
+clean:
+	rm -f $(OBJ_FILES)
 	make fclean -C libft
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
