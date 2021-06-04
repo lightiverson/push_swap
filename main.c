@@ -1,5 +1,21 @@
 #include "push_swap.h"
 
+int swap(t_stack *stack)
+{
+    int temp;
+
+    if (stack->top < 2)
+    {
+        printf("Less than 2 elements. Do nothing. Return");
+        return (1);
+    }
+
+    temp = stack->p_array[stack->top - 1];
+    stack->p_array[stack->top - 1] = stack->p_array[stack->top - 2];
+    stack->p_array[(stack->top) - 2] = temp;
+    return (0);
+}
+
 void print_stack(t_stack *stack)
 {
     int i;
@@ -22,12 +38,13 @@ void populate_stack(char *argv[], t_stack *stack)
     int j;
 
     i = 1;
-    j = 0;
+    j = stack->len - 1;
     while (argv[i] != NULL) // Is het niet beter deze te vervangen door argc, aangezien array size daarop gebaseerd is?
     {
         x = ft_atoi(argv[i]);
         stack->p_array[j] = x;
-        j++;
+        stack->top++;
+        j--;
         i++;
     }
 }
@@ -64,6 +81,9 @@ int main(int argc, char *argv[])
 
     print_stack(&(stacks[0]));
     print_stack(&(stacks[1]));
+
+    swap(&(stacks[0]));
+    print_stack(&(stacks[0]));
 
     return (0);
 }
