@@ -44,39 +44,26 @@ void initialize_stack(t_stack *stack, int len)
     stack->len = len;
 }
 
-// int main(int argc, char *argv[])
-// {
-//     ft_putstr_fd("running main()\n", 1);
-//     push_swap();
-
-//     t_stack stack_a; // Declare variable stack_a of type t_stack
-
-//     initialize_stack(&stack_a, argc - 1); // - 1 because argc includes a count for the name of the executable
-
-//     populate_stack(argv, &stack_a);
-
-//     print_stack(&stack_a);
-
-//     free(stack_a.p_array);
-//     return (0);
-// }
-
 int main(int argc, char *argv[])
 {
     printf("running main()\n");
     push_swap();
 
-    t_stacks stacks;
+    int i;
 
-    initialize_stack(&(stacks.stack_a), argc - 1); // - 1 because argc includes a count for the name of the executable
-    initialize_stack(&(stacks.stack_b), argc - 1); // - 1 because argc includes a count for the name of the executable
+    i = 0;
+    t_stack stacks[2];
 
-    populate_stack(argv, &(stacks.stack_a));
+    while (i < 2)
+    {
+        initialize_stack(&(stacks[i]), argc - 1);
+        i++;
+    }
 
-    print_stack(&(stacks.stack_a));
-    print_stack(&(stacks.stack_b));
+    populate_stack(argv, &(stacks[0]));
 
-    free(stacks.stack_a.p_array);
-    free(stacks.stack_b.p_array);
+    print_stack(&(stacks[0]));
+    print_stack(&(stacks[1]));
+
     return (0);
 }
