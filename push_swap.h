@@ -10,7 +10,13 @@ typedef struct s_stack
 {
     int *p_array;
     int top;
-    // int len;
+    int len;
 } t_stack;
+
+typedef struct s_stacks
+{
+    t_stack stack_a;
+    t_stack stack_b;
+} t_stacks;
 
 #endif /* PUSH_SWAP_H */
