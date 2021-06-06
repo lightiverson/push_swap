@@ -1,38 +1,8 @@
 #include "push_swap.h"
 
-int swap(t_stack *stack)
-{
-    int temp;
-
-    if (stack->top < 2)
-    {
-        printf("Less than 2 elements. Do nothing. Return");
-        return (1);
-    }
-
-    temp = stack->p_array[stack->top - 1];
-    stack->p_array[stack->top - 1] = stack->p_array[stack->top - 2];
-    stack->p_array[(stack->top) - 2] = temp;
-    return (0);
-}
-
-void print_stack(t_stack *stack)
-{
-    int i;
-
-    i = 0;
-    printf("stack->len = %d\n", stack->len);
-    printf("stack->top = %d\n", stack->top);
-    while (i < stack->len)
-    {
-        printf("%d\n", stack->p_array[i]);
-        i++;
-    }
-    printf("-\n");
-}
-
 void populate_stack(char *argv[], t_stack *stack)
 {
+    printf("running populate_stack()\n");
     int i;
     int x;
     int j;
@@ -51,10 +21,11 @@ void populate_stack(char *argv[], t_stack *stack)
 
 void initialize_stack(t_stack *stack, int len)
 {
+    printf("running initialize_stack()\n");
     stack->p_array = ft_calloc(len,sizeof(*stack->p_array));
     if (stack->p_array == NULL)
     {
-        ft_putstr_fd("malloc failed\n", 1);
+        printf("malloc failed\n");
         exit(EXIT_FAILURE);
     }
     stack->top = 0;
@@ -82,8 +53,11 @@ int main(int argc, char *argv[])
     print_stack(&(stacks[0]));
     print_stack(&(stacks[1]));
 
-    swap(&(stacks[0]));
-    print_stack(&(stacks[0]));
+    // swap(&(stacks[0]));
+
+    // push(&(stacks[0]), &(stacks[1]));
+
+    rotate(&(stacks[0]));
 
     return (0);
 }
