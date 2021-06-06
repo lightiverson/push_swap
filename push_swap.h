@@ -15,7 +15,8 @@ typedef struct s_stack
 } t_stack;
 
 // Operations.c
-void rotate(t_stack *stack);
+int reverse_rotate(t_stack *stack);
+int rotate(t_stack *stack);
 int push(t_stack *stack_from, t_stack *stack_to);
 int swap(t_stack *stack);
 

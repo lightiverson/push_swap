@@ -4,6 +4,7 @@ OBJ_FILES = push_swap.o \
 			operations.o \
 			utilities.o
 HEADER_FILES = push_swap.h
+CFLAGS = -g
 LIBFT = libft/libft.a
 
 all: $(NAME)
@@ -12,7 +13,7 @@ $(NAME): $(OBJ_FILES) $(LIBFT)
 	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT)
 
 %.o: %.c $(HEADER_FILES)
-	$(CC) -c -o $@ $<
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(LIBFT):
 	make -C libft

@@ -1,21 +1,56 @@
 #include "push_swap.h"
 
-void rotate(t_stack *stack)
+int reverse_rotate(t_stack *stack)
+{
+    printf("running reverse_rotate()\n");
+    int i;
+    int first_element;
+
+    if (stack->top < 2)
+    {
+        printf("Less than 2 elements. Do nothing. Return");
+        return (1);
+    }
+
+    i = 0;
+    first_element = stack->p_array[0];
+
+    while (i < (stack->top - 1))
+    {
+        stack->p_array[i] = stack->p_array[i + 1];
+        i++;
+    }
+    stack->p_array[stack->top - 1] = first_element;
+
+    print_stack(stack);
+
+    return (0);
+}
+
+int rotate(t_stack *stack)
 {
     printf("running rotate()\n");
     int i;
-    int temp;
+    int last_element;
+
+    if (stack->top < 2)
+    {
+        printf("Less than 2 elements. Do nothing. Return");
+        return (1);
+    }
 
     i = stack->top - 1;
-    temp = stack->p_array[stack->top - 1];
+    last_element = stack->p_array[stack->top - 1];
     while (i > 0)
     {
         stack->p_array[i] = stack->p_array[i - 1];
         i--;
     }
-    stack->p_array[0] = temp;
+    stack->p_array[0] = last_element;
 
     print_stack(stack);
+
+    return (0);
 }
 
 int push(t_stack *stack_from, t_stack *stack_to)

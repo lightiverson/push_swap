@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
     // push(&(stacks[0]), &(stacks[1]));
 
     rotate(&(stacks[0]));
+    reverse_rotate(&(stacks[0]));
 
     return (0);
 }
