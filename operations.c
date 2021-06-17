@@ -2,13 +2,13 @@
 
 int reverse_rotate(t_stack *stack)
 {
-    printf("running reverse_rotate()\n");
+    printf("rr%c\n", stack->stack_name);
     int i;
     int first_element;
 
     if (stack->top < 2)
     {
-        printf("Less than 2 elements. Do nothing. Return");
+        printf("Less than 2 elements. Do nothing. Return.\n");
         return (1);
     }
 
@@ -22,20 +22,18 @@ int reverse_rotate(t_stack *stack)
     }
     stack->p_array[stack->top - 1] = first_element;
 
-    print_stack(stack);
-
     return (0);
 }
 
 int rotate(t_stack *stack)
 {
-    printf("running rotate()\n");
+    printf("r%c\n", stack->stack_name);
     int i;
     int last_element;
 
     if (stack->top < 2)
     {
-        printf("Less than 2 elements. Do nothing. Return");
+        printf("Less than 2 elements. Do nothing. Return.\n");
         return (1);
     }
 
@@ -48,14 +46,12 @@ int rotate(t_stack *stack)
     }
     stack->p_array[0] = last_element;
 
-    print_stack(stack);
-
     return (0);
 }
 
 int push(t_stack *stack_from, t_stack *stack_to)
 {
-    printf("running push()\n");
+    printf("p%c\n", stack_from->stack_name);
     int first_element;
 
     if (stack_from->top == 0)
@@ -70,15 +66,12 @@ int push(t_stack *stack_from, t_stack *stack_to)
     stack_to->p_array[stack_to->top] = first_element;
     stack_to->top++;
 
-    print_stack(stack_from);
-    print_stack(stack_to);
-
     return (0);
 }
 
 int swap(t_stack *stack)
 {
-    printf("running swap()\n");
+    printf("s%c\n", stack->stack_name);
     int temp;
 
     if (stack->top < 2)
@@ -91,6 +84,5 @@ int swap(t_stack *stack)
     stack->p_array[stack->top - 1] = stack->p_array[stack->top - 2];
     stack->p_array[(stack->top) - 2] = temp;
 
-    print_stack(stack);
     return (0);
 }
