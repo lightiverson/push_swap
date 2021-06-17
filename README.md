@@ -37,10 +37,3 @@ make
 ## Authors
 
 - [@lightiverson](https://www.github.com/lightiverson)
-
-  
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-  
