@@ -1,6 +1,5 @@
 NAME = push_swap
 OBJ_FILES = push_swap.o \
-			main.o \
 			operations.o \
 			utilities.o
 HEADER_FILES = push_swap.h
