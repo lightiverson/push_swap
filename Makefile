@@ -12,7 +12,7 @@ $(NAME): $(OBJ_FILES) $(LIBFT)
 	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT)
 
 %.o: %.c $(HEADER_FILES)
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -D DEBUG -c $(CFLAGS) -o $@ $<
 
 $(LIBFT):
 	make -C libft

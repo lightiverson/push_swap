@@ -38,17 +38,25 @@ int main(int argc, char *argv[])
     populate_stack(argv, &(stacks['a']));
     initialize_stack(&(stacks['b']), argc - 1, 'b');
     
-    // print_stack(&(stacks['a']));
-    // print_stack(&(stacks['b']));
-
-    selection_sort(&(stacks['a']), &(stacks['b']));
-    selection_sort(&(stacks['a']), &(stacks['b']));
-    selection_sort(&(stacks['a']), &(stacks['b']));
-    selection_sort(&(stacks['a']), &(stacks['b']));
-
-    printf("\n\n");
     print_stack(&(stacks['a']));
     print_stack(&(stacks['b']));
 
+    // selection_sort(&(stacks['a']), &(stacks['b']));
+    // selection_sort(&(stacks['a']), &(stacks['b']));
+    // selection_sort(&(stacks['a']), &(stacks['b']));
+    // selection_sort(&(stacks['a']), &(stacks['b']));
+
+    // printf("\n\n");
+    // print_stack(&(stacks['a']));
+    // print_stack(&(stacks['b']));
+    // bubble_sort(&(stacks['a']));
+    // print_stack(&(stacks['a']));
+
+    // minimum(stacks['a'].p_array, stacks['a'].top);
+
+    // is_in_array(stacks['a'].p_array, stacks['a'].len, 66);
+
+    int array_test[] = {6, 9};
+    find_next_smallest_value(stacks['a'].p_array, stacks['a'].len, array_test, 2);
     return (0);
 }

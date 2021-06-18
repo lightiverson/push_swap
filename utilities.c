@@ -1,37 +1,21 @@
 #include "push_swap.h"
 
-void print_stack(t_stack *stack)
-{
-    int i;
-
-    i = stack->top;
-    printf("stack->len = %d\n", stack->len);
-    printf("stack->top = %d\n", stack->top);
-    printf("stack->name = %c\n", stack->stack_name);
-    while (i)
-    {
-        printf("[%d] = %d\n", i - 1, stack->p_array[i - 1]);
-        i--;
-    }
-    printf("----\n");
-}
-
 int minimum(int *p_array, int top)
 {
     int i;
     int minimum;
 
-    i = 0;
-    minimum = p_array[i];
+    i = 1;
+    minimum = p_array[0];
     while (i < top)
     {
         if (p_array[i] < minimum)
-        {
             minimum = p_array[i];
-        }
         i++;
     }
-
+    #ifdef DEBUG
+        printf("minimum = %d\n", minimum);
+    #endif
     return minimum;
 }
 
@@ -55,6 +39,68 @@ int index_of_minimum(int *p_array, int top)
     return index_of_minimum;
 }
 
+bool is_in_array(int *p_array, int array_len, int x)
+{
+    #ifdef DEBUG
+        printf("running is_in_array()\n");
+    #endif
+    int i;
+
+    i = 0;
+    while (i < array_len)
+    {
+        if (x == p_array[i])
+            return true;
+        i++;
+    }
+    return false;
+}
+
+int find_next_smallest_value(int *p_array, int array_len, int *p_array_exclude, int array_exclude_len)
+{
+    #ifdef DEBUG
+        printf("running find_next_smallest_value()\n");
+    #endif
+    int i;
+    int smallest_value;
+
+    i = 1;
+    smallest_value = p_array[0];
+    while (i < array_len)
+    {
+        if (p_array[i] < smallest_value)
+        {
+            if (is_in_array(p_array_exclude, array_exclude_len, p_array[i]))
+            {
+                i++;
+                continue;
+            }
+            smallest_value = p_array[i];
+        }
+        i++;
+    }
+    #ifdef DEBUG
+        printf("smallest_value = %d\n", smallest_value);
+    #endif
+    return smallest_value;
+}
+
+void print_stack(t_stack *stack)
+{
+    int i;
+
+    i = stack->top;
+    printf("stack->len = %d\n", stack->len);
+    printf("stack->top = %d\n", stack->top);
+    printf("stack->name = %c\n", stack->stack_name);
+    while (i)
+    {
+        printf("[%d] = %d\n", i - 1, stack->p_array[i - 1]);
+        i--;
+    }
+    printf("----\n");
+}
+
 void selection_sort(t_stack *stack_a, t_stack *stack_b)
 {
     int min_index;
@@ -71,3 +117,29 @@ void selection_sort(t_stack *stack_a, t_stack *stack_b)
     }
     push(stack_a, stack_b);
 }
+
+void bubble_sort(t_stack *stack_a)
+{
+    int top_dup;
+    int current_value;
+    int next_value;
+
+    top_dup = stack_a->top;
+    while (top_dup > 0)
+    {
+        // printf("%d\n", stack_a->p_array[top_dup - 1]);
+        current_value = stack_a->p_array[top_dup - 1];
+        next_value = stack_a->p_array[top_dup - 1 - 1];
+
+        if (current_value > next_value)
+        {
+            while (current_value != stack_a->p_array[stack_a->top - 1])
+                rotate(stack_a);
+            swap(stack_a);
+        }
+        top_dup--;
+    }
+}
+// je moet met index werken en niet current value next value
+// elke keer als je rotate moet je de indexes van de values die je aan het vergelijken bent mee roteren
+// while inndex van de next value niet gelijk is aan 0

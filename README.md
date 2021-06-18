@@ -4,8 +4,6 @@ This project sorts integers on a stack datatype, with a limited set of instructi
 
 The goal of this project is to learn how to succesfully manipulate various types of searching/sorting algorithms. And to choose the most appropriate solution for your complexity needs.
 
-
-
 ## FAQ
 
 #### Result
