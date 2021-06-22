@@ -58,5 +58,6 @@ int main(int argc, char *argv[])
 
     int array_test[] = {6, 9};
     find_next_smallest_value(stacks['a'].p_array, stacks['a'].len, array_test, 2);
+    index_of_value(stacks['a'].p_array, stacks['a'].len, 9);
     return (0);
 }

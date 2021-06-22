@@ -39,7 +39,26 @@ int index_of_minimum(int *p_array, int top)
     return index_of_minimum;
 }
 
-bool is_in_array(int *p_array, int array_len, int x)
+int index_of_value(const int *p_array, int array_len, int x)
+{
+    int i;
+    int index_of_value;
+
+    i = 0;
+    index_of_value = -1;
+    while (i < array_len)
+    {
+        if (x == p_array[i])
+            index_of_value = i;
+        i++;
+    }
+    #ifdef DEBUG
+        printf("index_of_value = %d\n", index_of_value);
+    #endif
+    return index_of_value; 
+}
+
+bool is_in_array(const int *p_array, int array_len, int x)
 {
     #ifdef DEBUG
         printf("running is_in_array()\n");
@@ -56,8 +75,10 @@ bool is_in_array(int *p_array, int array_len, int x)
     return false;
 }
 
-int find_next_smallest_value(int *p_array, int array_len, int *p_array_exclude, int array_exclude_len)
+int find_next_smallest_value(const int *p_array, int array_len, int *p_array_exclude, int array_exclude_len)
 {
+    // die exclude array moet je in deze functie maken. misschien eerst als variable size array voor testing purposes. En dan later mallocen
+    int array_exclude[array_len];
     #ifdef DEBUG
         printf("running find_next_smallest_value()\n");
     #endif
