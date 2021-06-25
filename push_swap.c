@@ -64,5 +64,9 @@ int main(int argc, char *argv[])
     // find_largest_value(stacks['a'].p_array, stacks['a'].top);
 
     alpha(&stacks['a']);
+    alpha(&stacks['a']);
+    alpha(&stacks['a']);
+    alpha(&stacks['a']);
+    alpha(&stacks['a']);
     return (0);
 }

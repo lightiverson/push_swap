@@ -19,26 +19,6 @@ int minimum(int *p_array, int top)
     return minimum;
 }
 
-// Ik shift mijn array, dus je moet altijd vanaf de bodem
-int index_of_minimum(int *p_array, int top)
-{
-    int i;
-    int index_of_minimum;
-
-    i = 0;
-    index_of_minimum = 0;
-    while (i < top)
-    {
-        if (p_array[i] < p_array[index_of_minimum])
-        {
-            index_of_minimum = i;
-        }
-        i++;
-    }
-
-    return index_of_minimum;
-}
-
 int index_of_value(const int *p_array, int array_len, int x)
 {
     int i;
@@ -139,32 +119,6 @@ void selection_sort(t_stack *stack_a, t_stack *stack_b)
     push(stack_a, stack_b);
 }
 
-void bubble_sort(t_stack *stack_a)
-{
-    int top_dup;
-    int current_value;
-    int next_value;
-
-    top_dup = stack_a->top;
-    while (top_dup > 0)
-    {
-        // printf("%d\n", stack_a->p_array[top_dup - 1]);
-        current_value = stack_a->p_array[top_dup - 1];
-        next_value = stack_a->p_array[top_dup - 1 - 1];
-
-        if (current_value > next_value)
-        {
-            while (current_value != stack_a->p_array[stack_a->top - 1])
-                rotate(stack_a);
-            swap(stack_a);
-        }
-        top_dup--;
-    }
-}
-// je moet met index werken en niet current value next value
-// elke keer als je rotate moet je de indexes van de values die je aan het vergelijken bent mee roteren
-// while inndex van de next value niet gelijk is aan 0
-
 int find_largest_value(int *p_array, int top)
 {
     int i;
@@ -192,7 +146,7 @@ void alpha(t_stack *stack_a)
     int before_last_element = stack_a->top - 2;
     int number_sorted_elements = 0;
 
-    while (i < stack_a->top)
+    while (i < stack_a->top - 1)
     {
         if (stack_a->p_array[last_element] > stack_a->p_array[before_last_element])
         {
@@ -214,3 +168,7 @@ void alpha(t_stack *stack_a)
 
     print_stack(stack_a);
 }
+// Ik snap em nog niet helemaal
+// De overkoepelende loop is nog niet duidelijk
+// En elke volgende iteratie hoeft de 1e inner loop 1x minder te loopen dan de voorgaande keer
+// Improve print statements
