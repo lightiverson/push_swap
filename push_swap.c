@@ -60,6 +60,9 @@ int main(int argc, char *argv[])
     // find_next_smallest_value(stacks['a'].p_array, stacks['a'].len, array_test, 2);
     // index_of_value(stacks['a'].p_array, stacks['a'].len, 9);
 
-    find_largest_value(stacks['a'].p_array, stacks['a'].top);
+    // 3 2 5 1 6 4
+    // find_largest_value(stacks['a'].p_array, stacks['a'].top);
+
+    alpha(&stacks['a']);
     return (0);
 }

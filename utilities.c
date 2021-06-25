@@ -183,3 +183,34 @@ int find_largest_value(int *p_array, int top)
     #endif
     return largest_value;
 }
+
+void alpha(t_stack *stack_a)
+{
+    int i = 0;
+    int j = 0;
+    int last_element = stack_a->top - 1;
+    int before_last_element = stack_a->top - 2;
+    int number_sorted_elements = 0;
+
+    while (i < stack_a->top)
+    {
+        if (stack_a->p_array[last_element] > stack_a->p_array[before_last_element])
+        {
+            swap(stack_a);
+            rotate(stack_a);
+        }
+        else
+            rotate(stack_a);
+        i++;
+    }
+    number_sorted_elements++;
+    i = 0;
+    while (j < number_sorted_elements)
+    {
+        rotate(stack_a);
+        j++;
+    }
+    j = 0;
+
+    print_stack(stack_a);
+}
