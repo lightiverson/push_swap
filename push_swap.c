@@ -56,8 +56,10 @@ int main(int argc, char *argv[])
 
     // is_in_array(stacks['a'].p_array, stacks['a'].len, 66);
 
-    int array_test[] = {6, 9};
-    find_next_smallest_value(stacks['a'].p_array, stacks['a'].len, array_test, 2);
-    index_of_value(stacks['a'].p_array, stacks['a'].len, 9);
+    // int array_test[] = {6, 9};
+    // find_next_smallest_value(stacks['a'].p_array, stacks['a'].len, array_test, 2);
+    // index_of_value(stacks['a'].p_array, stacks['a'].len, 9);
+
+    find_largest_value(stacks['a'].p_array, stacks['a'].top);
     return (0);
 }

@@ -164,3 +164,22 @@ void bubble_sort(t_stack *stack_a)
 // je moet met index werken en niet current value next value
 // elke keer als je rotate moet je de indexes van de values die je aan het vergelijken bent mee roteren
 // while inndex van de next value niet gelijk is aan 0
+
+int find_largest_value(int *p_array, int top)
+{
+    int i;
+    int largest_value;
+
+    i = 1;
+    largest_value = p_array[0];
+    while (i < top)
+    {
+        if (p_array[i] > largest_value)
+            largest_value = p_array[i];
+        i++;
+    }
+    #ifdef DEBUG
+        printf("largest_value = %d\n", largest_value);
+    #endif
+    return largest_value;
+}

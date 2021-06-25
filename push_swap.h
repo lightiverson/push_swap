@@ -28,8 +28,9 @@ int minimum(int *p_array, int top);
 int index_of_minimum(int *p_array, int top);
 void selection_sort(t_stack *stack_a, t_stack *stack_b);
 void bubble_sort(t_stack *stack_a);
-bool is_in_array(int *p_array, int array_len, int x);
-int find_next_smallest_value(int *p_array, int array_len, int *p_array_exclude, int array_exclude_len);
+bool is_in_array(const int *p_array, int array_len, int x);
+int find_next_smallest_value(const int *p_array, int array_len, int *p_array_exclude, int array_exclude_len);
 int index_of_value(const int *p_array, int array_len, int x);
+int find_largest_value(int *p_array, int top);
 
 #endif /* PUSH_SWAP_H */
