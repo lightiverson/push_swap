@@ -102,23 +102,6 @@ void print_stack(t_stack *stack)
     printf("----\n");
 }
 
-void selection_sort(t_stack *stack_a, t_stack *stack_b)
-{
-    int min_index;
-    int cutoff;
-
-    min_index = index_of_minimum(stack_a->p_array, stack_a->top);
-    cutoff = (stack_a->top - 1) / 2;
-    while (index_of_minimum(stack_a->p_array, stack_a->top) != (stack_a->top - 1))
-    {
-        if (min_index < cutoff)
-            reverse_rotate(stack_a);
-        else
-            rotate(stack_a);
-    }
-    push(stack_a, stack_b);
-}
-
 int find_largest_value(int *p_array, int top)
 {
     int i;
@@ -140,35 +123,37 @@ int find_largest_value(int *p_array, int top)
 
 void alpha(t_stack *stack_a)
 {
-    int i = 0;
+    printf("running alpha()\n");
+
     int j = 0;
-    int last_element = stack_a->top - 1;
-    int before_last_element = stack_a->top - 2;
-    int number_sorted_elements = 0;
+    int k = 0;
+    int l = stack_a->top - 1; // 4
+    int m = 0;
+    int index_last_element = stack_a->top - 1;
+    int index_second_last_element = stack_a->top - 2;
 
-    while (i < stack_a->top - 1)
+    while (j < stack_a->top - 1) // deze loopt 6x
     {
-        if (stack_a->p_array[last_element] > stack_a->p_array[before_last_element])
+        while (k < l) // deze loopt de eerste iteratie 5x, de volgende iteratie 4x
         {
-            swap(stack_a);
-            rotate(stack_a);
+            if (stack_a->p_array[index_last_element] > stack_a->p_array[index_second_last_element])
+            {
+                swap(stack_a);
+                rotate(stack_a);
+            }
+            else
+                rotate(stack_a);
+            k++;
         }
-        else
+        while (m < j + 1) // Je moet em nog eruit roteren. de eerste iteratie 1x, de volgende iteratie 2x, de vijfde iteratie 6x
+        {
             rotate(stack_a);
-        i++;
-    }
-    number_sorted_elements++;
-    i = 0;
-    while (j < number_sorted_elements)
-    {
-        rotate(stack_a);
+            m++;
+        }
+        m = 0;
+        k = 0;
+        l--;
         j++;
+        print_stack(stack_a);
     }
-    j = 0;
-
-    print_stack(stack_a);
 }
-// Ik snap em nog niet helemaal
-// De overkoepelende loop is nog niet duidelijk
-// En elke volgende iteratie hoeft de 1e inner loop 1x minder te loopen dan de voorgaande keer
-// Improve print statements
