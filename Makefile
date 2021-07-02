@@ -8,6 +8,9 @@ LIBFT = libft/libft.a
 
 all: $(NAME)
 
+debug: CFLAGS += -D DEBUG
+debug: $(NAME)
+
 $(NAME): $(OBJ_FILES) $(LIBFT)
 	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT)
 

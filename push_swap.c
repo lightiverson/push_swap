@@ -37,9 +37,11 @@ int main(int argc, char *argv[])
     initialize_stack(&(stacks['a']), argc - 1, 'a');
     populate_stack(argv, &(stacks['a']));
     initialize_stack(&(stacks['b']), argc - 1, 'b');
-    
-    print_stack(&(stacks['a']));
-    print_stack(&(stacks['b']));
+
+    #ifdef DEBUG
+        print_stack(&(stacks['a']));
+        print_stack(&(stacks['b']));
+    #endif 
 
     // selection_sort(&(stacks['a']), &(stacks['b']));
     // selection_sort(&(stacks['a']), &(stacks['b']));
@@ -63,10 +65,6 @@ int main(int argc, char *argv[])
     // 3 2 5 1 6 4
     // find_largest_value(stacks['a'].p_array, stacks['a'].top);
 
-    alpha(&stacks['a']);
-    // alpha(&stacks['a']);
-    // alpha(&stacks['a']);
-    // alpha(&stacks['a']);
-    // alpha(&stacks['a']);
+    bubble_sort(&stacks['a']);
     return (0);
 }

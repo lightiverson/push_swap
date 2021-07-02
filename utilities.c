@@ -13,9 +13,6 @@ int minimum(int *p_array, int top)
             minimum = p_array[i];
         i++;
     }
-    #ifdef DEBUG
-        printf("minimum = %d\n", minimum);
-    #endif
     return minimum;
 }
 
@@ -32,17 +29,11 @@ int index_of_value(const int *p_array, int array_len, int x)
             index_of_value = i;
         i++;
     }
-    #ifdef DEBUG
-        printf("index_of_value = %d\n", index_of_value);
-    #endif
     return index_of_value; 
 }
 
 bool is_in_array(const int *p_array, int array_len, int x)
 {
-    #ifdef DEBUG
-        printf("running is_in_array()\n");
-    #endif
     int i;
 
     i = 0;
@@ -59,9 +50,6 @@ int find_next_smallest_value(const int *p_array, int array_len, int *p_array_exc
 {
     // die exclude array moet je in deze functie maken. misschien eerst als variable size array voor testing purposes. En dan later mallocen
     int array_exclude[array_len];
-    #ifdef DEBUG
-        printf("running find_next_smallest_value()\n");
-    #endif
     int i;
     int smallest_value;
 
@@ -80,9 +68,6 @@ int find_next_smallest_value(const int *p_array, int array_len, int *p_array_exc
         }
         i++;
     }
-    #ifdef DEBUG
-        printf("smallest_value = %d\n", smallest_value);
-    #endif
     return smallest_value;
 }
 
@@ -91,8 +76,6 @@ void print_stack(t_stack *stack)
     int i;
 
     i = stack->top;
-    printf("stack->len = %d\n", stack->len);
-    printf("stack->top = %d\n", stack->top);
     printf("stack->name = %c\n", stack->stack_name);
     while (i)
     {
@@ -115,45 +98,61 @@ int find_largest_value(int *p_array, int top)
             largest_value = p_array[i];
         i++;
     }
-    #ifdef DEBUG
-        printf("largest_value = %d\n", largest_value);
-    #endif
     return largest_value;
 }
 
-void alpha(t_stack *stack_a)
+void is_sorted()
 {
-    printf("running alpha()\n");
+    int i;
+    int j;
+
+    i = stack_top - 1;
+    j = stack_top - 2;
+
+    while (j != 0)
+    {
+        j--;
+    }
+    return true;
+}
+
+void bubble_sort(t_stack *stack_a)
+{
+    #ifdef DEBUG
+        printf("running bubble_sort()\n");
+    #endif
 
     int j = 0;
     int k = 0;
-    int l = stack_a->top - 1; // 4
+    int l = stack_a->top - 1;
     int m = 0;
     int index_last_element = stack_a->top - 1;
     int index_second_last_element = stack_a->top - 2;
 
-    while (j < stack_a->top - 1) // deze loopt 6x
+    while (j < stack_a->top - 1)
     {
-        while (k < l) // deze loopt de eerste iteratie 5x, de volgende iteratie 4x
+        while (k < l)
         {
             if (stack_a->p_array[index_last_element] > stack_a->p_array[index_second_last_element])
-            {
                 swap(stack_a);
-                rotate(stack_a);
-            }
-            else
+            if (j < stack_a->top - 1 - 1)
                 rotate(stack_a);
             k++;
         }
-        while (m < j + 1) // Je moet em nog eruit roteren. de eerste iteratie 1x, de volgende iteratie 2x, de vijfde iteratie 6x
+        if (j < stack_a->top - 1 - 1)
         {
-            rotate(stack_a);
-            m++;
+            while (m < j + 1)
+            {
+                rotate(stack_a);
+                m++;
+            }
         }
         m = 0;
         k = 0;
         l--;
         j++;
-        print_stack(stack_a);
+        #ifdef DEBUG
+            print_stack(stack_a);
+        #endif
     }
 }
