@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void populate_stack(char *argv[], t_stack *stack)
+static void populate_stack(char *argv[], t_stack *stack)
 {
     int i;
     int x;
@@ -18,7 +18,7 @@ void populate_stack(char *argv[], t_stack *stack)
     }
 }
 
-void initialize_stack(t_stack *stack, int len, char stack_name)
+static void initialize_stack(t_stack *stack, int len, char stack_name)
 {
     stack->p_array = ft_calloc(len, sizeof(*stack->p_array));
     if (stack->p_array == NULL)
@@ -41,30 +41,10 @@ int main(int argc, char *argv[])
     #ifdef DEBUG
         print_stack(&(stacks['a']));
         print_stack(&(stacks['b']));
-    #endif 
+		printf("\n");
+    #endif
 
-    // selection_sort(&(stacks['a']), &(stacks['b']));
-    // selection_sort(&(stacks['a']), &(stacks['b']));
-    // selection_sort(&(stacks['a']), &(stacks['b']));
-    // selection_sort(&(stacks['a']), &(stacks['b']));
+	bubble_sort(&stacks['a']);
 
-    // printf("\n\n");
-    // print_stack(&(stacks['a']));
-    // print_stack(&(stacks['b']));
-    // bubble_sort(&(stacks['a']));
-    // print_stack(&(stacks['a']));
-
-    // minimum(stacks['a'].p_array, stacks['a'].top);
-
-    // is_in_array(stacks['a'].p_array, stacks['a'].len, 66);
-
-    // int array_test[] = {6, 9};
-    // find_next_smallest_value(stacks['a'].p_array, stacks['a'].len, array_test, 2);
-    // index_of_value(stacks['a'].p_array, stacks['a'].len, 9);
-
-    // 3 2 5 1 6 4
-    // find_largest_value(stacks['a'].p_array, stacks['a'].top);
-
-    bubble_sort(&stacks['a']);
     return (0);
 }

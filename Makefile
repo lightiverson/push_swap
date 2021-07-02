@@ -1,7 +1,9 @@
 NAME = push_swap
 OBJ_FILES = push_swap.o \
 			operations.o \
-			utilities.o
+			utilities.o \
+			utilities_algorithms.o \
+			algorithms.o
 HEADER_FILES = push_swap.h
 CFLAGS = -g
 LIBFT = libft/libft.a
