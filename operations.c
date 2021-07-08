@@ -22,6 +22,10 @@ int reverse_rotate(t_stack *stack)
     }
     stack->p_array[stack->top - 1] = first_element;
 
+    #ifdef DEBUG
+        print_stack(stack);
+    #endif
+
     return (0);
 }
 
@@ -46,6 +50,10 @@ int rotate(t_stack *stack)
     }
     stack->p_array[0] = last_element;
 
+    #ifdef DEBUG
+        print_stack(stack);
+    #endif
+
     return (0);
 }
 
@@ -66,6 +74,11 @@ int push(t_stack *stack_from, t_stack *stack_to)
     stack_to->p_array[stack_to->top] = first_element;
     stack_to->top++;
 
+    #ifdef DEBUG
+        print_stack(stack_from);
+        print_stack(stack_to);
+    #endif
+
     return (0);
 }
 
@@ -83,6 +96,10 @@ int swap(t_stack *stack)
     temp = stack->p_array[stack->top - 1];
     stack->p_array[stack->top - 1] = stack->p_array[stack->top - 2];
     stack->p_array[(stack->top) - 2] = temp;
+
+    #ifdef DEBUG
+        print_stack(stack);
+    #endif
 
     return (0);
 }

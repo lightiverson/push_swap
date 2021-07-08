@@ -41,7 +41,6 @@ int main(int argc, char *argv[])
     #ifdef DEBUG
         print_stack(&(stacks['a']));
         print_stack(&(stacks['b']));
-		printf("\n");
     #endif
 
 	bubble_sort(&stacks['a']);
