@@ -76,22 +76,27 @@ void bubble_sort(t_stack *stack_a)
 
 int back_inbound(const t_stack *stack_a, int index)
 {
-    if (index - 1 == -1)
-        return stack_a->top;
+    if (index == -1)
+        return stack_a->top - 1;
     return index;
 }
 
 bool is_ordered(const t_stack *stack)
 {
     int i = 0;
-    int right_neighbour = (get_index(stack->p_array, stack->len, get_minimum(stack->p_array, stack->top)) - 1);
-    int left_neighbour = back_inbound(stack, right_neighbour) - 1;
+    // int right_neighbour = back_inbound(stack, get_index(stack->p_array, stack->len, get_minimum(stack->p_array, stack->top)));
+    // int left_neighbour = back_inbound(stack, right_neighbour) - 1;
+	int minimum = get_minimum(stack->p_array, stack->top);
+	int index_minimum = get_index(stack->p_array, stack->len, minimum);
+	int right_neighbour = back_inbound(stack, index_minimum - 1);
+    int left_neighbour = back_inbound(stack, right_neighbour - 1);
+
 
     while (i < stack->top - 1 - 1)
     {
         #ifdef DEBUG
             printf("iteratie %d\n", i);
-            printf("[%d] vs [%d]\n", stack->p_array[right_neighbour], stack->p_array[left_neighbour]);
+            printf("if (a[%d] > a[%d])\n", stack->p_array[right_neighbour], stack->p_array[left_neighbour]);
         #endif
         if (stack->p_array[right_neighbour] > stack->p_array[left_neighbour])
         {
