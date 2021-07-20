@@ -14,7 +14,7 @@
     // printf("----\n");
 // }
 
-void print_stack(t_stack *stack)
+void print_stack(const t_stack *stack)
 {
     int i;
 

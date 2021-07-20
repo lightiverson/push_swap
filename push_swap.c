@@ -43,7 +43,13 @@ int main(int argc, char *argv[])
         print_stack(&(stacks['b']));
     #endif
 
-	bubble_sort(&stacks['a']);
+	// bubble_sort(&stacks['a']);
+    // int x = get_minimum(stacks['a'].p_array, stacks['a'].top);
+    // get_index(stacks['a'].p_array, stacks['a'].top, x);
+    // is_ordered(&(stacks['a']));
 
+    alpha(&(stacks['a']));
+    print_stack(&(stacks['a']));
+    print_stack(&(stacks['b']));
     return (0);
 }

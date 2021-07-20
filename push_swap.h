@@ -18,7 +18,7 @@ typedef struct s_stack
 void push_swap(void);
 
 // Utilities.c
-void print_stack(t_stack *stack);
+void print_stack(const t_stack *stack);
 
 // Operations.c
 int reverse_rotate(t_stack *stack);
@@ -33,7 +33,12 @@ void bubble_sort(t_stack *stack_a);
 bool is_sorted(t_stack *stack);
 int get_minimum(const int *p_array, int top);
 int get_maximum(const int *p_array, int top);
-int get_index(const int *p_array, int array_len, int x);
-bool is_in_array(const int *p_array, int array_len, int x);
+int get_index(const int *p_array, int top, int element);
+bool is_in_array(const int *p_array, int top, int x);
 
+int back_inbound(const t_stack *stack_a, int index);
+bool is_ordered(const t_stack *stack);
+void rotate_to_top(t_stack *stack, int element);
+void rotate_to_top_minus_one(t_stack *stack, int element);
+void alpha(t_stack *stack);
 #endif /* PUSH_SWAP_H */

@@ -1,5 +1,14 @@
 #include "push_swap.h"
 
+/*
+Als het grootste getal op top staat, verspilt het algoritme veel moves.
+Het vergelijkt met elk ander getal en rotate door tot het klaar is.
+In deze staat is de stack hetzelfde als voor het algoritme begon.
+Dan roteert ie uit. 
+
+check of het grootste getal op plek top -1 of top - 2 zit, zo ja roteer em eruit, zo nee ga door
+*/
+
 void bubble_sort(t_stack *stack_a)
 {
     int j = 0;
@@ -9,23 +18,116 @@ void bubble_sort(t_stack *stack_a)
     int index_last_element = stack_a->top - 1;
     int index_second_last_element = stack_a->top - 2;
 
+    // if (is_sorted(stack_a))
+        // return (0);
+
     while (j < stack_a->top - 1)
     {
         while (k < l)
         {
             if (stack_a->p_array[index_last_element] > stack_a->p_array[index_second_last_element])
                 swap(stack_a);
-			rotate(stack_a);
+            if (l > 1)
+    			rotate(stack_a);
             k++;
         }
-		while (m < j + 1)
-		{
-			rotate(stack_a);
-			m++;
-		}
+        if (j < stack_a->top - 1 - 1)
+        {
+            while (m < j + 1)
+            {
+                rotate(stack_a);
+                m++;
+            }
+        }
         m = 0;
         k = 0;
         l--;
         j++;
     }
+}
+
+// void bubble_sort(t_stack *stack_a)
+// {
+//     int i;
+//     int j;
+//     int index_last_element;
+//     int index_second_last_element;
+
+//     i = 0;
+//     j = 0;
+//     index_last_element = stack_a->top - 1;
+//     index_second_last_element = stack_a->top - 2;
+
+//     while (i < stack_a->top - 1) // looped over elk getal in de stack
+//     {
+//         // vergelijk elk getal met elk ander getal behalve zichzelf, dus n - 1 keer
+//         while (j < stack_a->top - 1)
+//         {
+//             if (stack_a->p_array[index_last_element] > stack_a->p_array[index_second_last_element])
+//             {
+//                 swap(stack_a);
+//                 rotate(stack_a);
+//             }
+//             j++;
+//         }
+//         i++;
+//     }
+// }
+
+int back_inbound(const t_stack *stack_a, int index)
+{
+    if (index - 1 == -1)
+        return stack_a->top;
+    return index;
+}
+
+bool is_ordered(const t_stack *stack)
+{
+    int i = 0;
+    int right_neighbour = (get_index(stack->p_array, stack->len, get_minimum(stack->p_array, stack->top)) - 1);
+    int left_neighbour = back_inbound(stack, right_neighbour) - 1;
+
+    while (i < stack->top - 1 - 1)
+    {
+        #ifdef DEBUG
+            printf("iteratie %d\n", i);
+            printf("[%d] vs [%d]\n", stack->p_array[right_neighbour], stack->p_array[left_neighbour]);
+        #endif
+        if (stack->p_array[right_neighbour] > stack->p_array[left_neighbour])
+        {
+            #ifdef DEBUG
+                printf("returned false\n");
+            #endif
+            return false;
+        }
+        right_neighbour = left_neighbour;
+        left_neighbour = back_inbound(stack, right_neighbour) - 1;
+        i++;
+    }
+    #ifdef DEBUG
+        printf("returned true\n");
+    #endif
+    return true;
+}
+
+void alpha(t_stack *stack)
+{
+    int minimum;
+
+    minimum = get_minimum(stack->p_array, stack->top);
+    if (is_ordered(stack))
+    {
+        rotate_to_top(stack, minimum);
+        #ifdef DEBUG
+            printf("alpha() = \n");
+            print_stack(stack);
+        #endif
+        return;
+    }
+    rotate_to_top_minus_one(stack, minimum);
+    swap(stack);
+    #ifdef DEBUG
+        printf("alpha() = \n");
+        print_stack(stack);
+    #endif
 }
