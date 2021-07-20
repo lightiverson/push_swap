@@ -81,21 +81,21 @@ int back_inbound(const t_stack *stack_a, int index)
     return index;
 }
 
-bool is_ordered(const t_stack *stack)
+bool is_ordered(const t_stack *stack_a)
 {
     int i = 0;
-	int minimum = get_minimum(stack->p_array, stack->top);
-	int index_minimum = get_index(stack->p_array, stack->len, minimum);
-	int one_down = back_inbound(stack, index_minimum - 1);
-    int two_down = back_inbound(stack, one_down - 1);
+	int minimum = get_minimum(stack_a);
+	int index_minimum = get_index(stack_a, minimum);
+	int one_down = back_inbound(stack_a, index_minimum - 1);
+    int two_down = back_inbound(stack_a, one_down - 1);
 
-    while (i < stack->top - 1 - 1)
+    while (i < stack_a->top - 1 - 1)
     {
         #ifdef DEBUG
             printf("iteratie %d\n", i);
-            printf("if (a[%d] > a[%d])\n", stack->p_array[one_down], stack->p_array[two_down]);
+            printf("if (a[%d] > a[%d])\n", stack_a->p_array[one_down], stack_a->p_array[two_down]);
         #endif
-        if (stack->p_array[one_down] > stack->p_array[two_down])
+        if (stack_a->p_array[one_down] > stack_a->p_array[two_down])
         {
             #ifdef DEBUG
                 printf("returned false\n");
@@ -103,7 +103,7 @@ bool is_ordered(const t_stack *stack)
             return false;
         }
         one_down = two_down;
-        two_down = back_inbound(stack, one_down) - 1;
+        two_down = back_inbound(stack_a, one_down) - 1;
         i++;
     }
     #ifdef DEBUG
@@ -116,7 +116,7 @@ void sort_three(t_stack *stack)
 {
     int minimum;
 
-    minimum = get_minimum(stack->p_array, stack->top);
+    minimum = get_minimum(stack);
     if (is_ordered(stack))
     {
         rotate_to_top(stack, minimum);

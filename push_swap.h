@@ -30,11 +30,11 @@ int swap(t_stack *stack);
 void bubble_sort(t_stack *stack_a);
 
 // Utilities_algorithms.c
-bool is_sorted(t_stack *stack);
-int get_minimum(const int *p_array, int top);
-int get_maximum(const int *p_array, int top);
-int get_index(const int *p_array, int top, int element);
-bool is_in_array(const int *p_array, int top, int x);
+bool is_sorted(const t_stack *stack);
+int get_minimum(const t_stack *stack);
+int get_maximum(const t_stack *stack);
+int get_index(const t_stack *stack, int element);
+bool is_in_array(const t_stack *stack, int x);
 
 int back_inbound(const t_stack *stack_a, int index);
 bool is_ordered(const t_stack *stack);
