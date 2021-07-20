@@ -33,7 +33,7 @@ int get_minimum(const int *p_array, int top) // *p_array en top zitten beiden in
         i++;
     }
     #ifdef DEBUG
-        printf("minimum = %d\n", minimum);
+        printf("get_minimum() = %d\n", minimum);
     #endif
     return minimum;
 }
@@ -68,7 +68,7 @@ int get_index(const int *p_array, int top, int element) // *p_array en top zitte
         i++;
     }
     #ifdef DEBUG
-        printf("index_element = %d\n", index_element);
+        printf("get_index() = %d\n", index_element);
     #endif
     return index_element; 
 }
