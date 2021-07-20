@@ -40,5 +40,5 @@ int back_inbound(const t_stack *stack_a, int index);
 bool is_ordered(const t_stack *stack);
 void rotate_to_top(t_stack *stack, int element);
 void rotate_to_top_minus_one(t_stack *stack, int element);
-void alpha(t_stack *stack);
+void sort_three(t_stack *stack);
 #endif /* PUSH_SWAP_H */

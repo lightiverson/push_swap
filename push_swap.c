@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     // get_index(stacks['a'].p_array, stacks['a'].top, x);
     // is_ordered(&(stacks['a']));
 
-    alpha(&(stacks['a']));
+    sort_three(&(stacks['a']));
     print_stack(&(stacks['a']));
     print_stack(&(stacks['b']));
     return (0);

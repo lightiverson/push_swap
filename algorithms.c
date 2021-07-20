@@ -84,29 +84,26 @@ int back_inbound(const t_stack *stack_a, int index)
 bool is_ordered(const t_stack *stack)
 {
     int i = 0;
-    // int right_neighbour = back_inbound(stack, get_index(stack->p_array, stack->len, get_minimum(stack->p_array, stack->top)));
-    // int left_neighbour = back_inbound(stack, right_neighbour) - 1;
 	int minimum = get_minimum(stack->p_array, stack->top);
 	int index_minimum = get_index(stack->p_array, stack->len, minimum);
-	int right_neighbour = back_inbound(stack, index_minimum - 1);
-    int left_neighbour = back_inbound(stack, right_neighbour - 1);
-
+	int one_down = back_inbound(stack, index_minimum - 1);
+    int two_down = back_inbound(stack, one_down - 1);
 
     while (i < stack->top - 1 - 1)
     {
         #ifdef DEBUG
             printf("iteratie %d\n", i);
-            printf("if (a[%d] > a[%d])\n", stack->p_array[right_neighbour], stack->p_array[left_neighbour]);
+            printf("if (a[%d] > a[%d])\n", stack->p_array[one_down], stack->p_array[two_down]);
         #endif
-        if (stack->p_array[right_neighbour] > stack->p_array[left_neighbour])
+        if (stack->p_array[one_down] > stack->p_array[two_down])
         {
             #ifdef DEBUG
                 printf("returned false\n");
             #endif
             return false;
         }
-        right_neighbour = left_neighbour;
-        left_neighbour = back_inbound(stack, right_neighbour) - 1;
+        one_down = two_down;
+        two_down = back_inbound(stack, one_down) - 1;
         i++;
     }
     #ifdef DEBUG
@@ -115,7 +112,7 @@ bool is_ordered(const t_stack *stack)
     return true;
 }
 
-void alpha(t_stack *stack)
+void sort_three(t_stack *stack)
 {
     int minimum;
 
@@ -124,7 +121,7 @@ void alpha(t_stack *stack)
     {
         rotate_to_top(stack, minimum);
         #ifdef DEBUG
-            printf("alpha() = \n");
+            printf("sort_three() = \n");
             print_stack(stack);
         #endif
         return;
@@ -132,7 +129,7 @@ void alpha(t_stack *stack)
     rotate_to_top_minus_one(stack, minimum);
     swap(stack);
     #ifdef DEBUG
-        printf("alpha() = \n");
+        printf("sort_three() = \n");
         print_stack(stack);
     #endif
 }
