@@ -74,44 +74,6 @@ void bubble_sort(t_stack *stack_a)
 //     }
 // }
 
-int back_inbound(const t_stack *stack_a, int index)
-{
-    if (index == -1)
-        return stack_a->top - 1;
-    return index;
-}
-
-bool is_ordered(const t_stack *stack_a)
-{
-    int i = 0;
-	int minimum = get_minimum(stack_a);
-	int index_minimum = get_index(stack_a, minimum);
-	int one_down = back_inbound(stack_a, index_minimum - 1);
-    int two_down = back_inbound(stack_a, one_down - 1);
-
-    while (i < stack_a->top - 1 - 1)
-    {
-        #ifdef DEBUG
-            printf("iteratie %d\n", i);
-            printf("if (a[%d] > a[%d])\n", stack_a->p_array[one_down], stack_a->p_array[two_down]);
-        #endif
-        if (stack_a->p_array[one_down] > stack_a->p_array[two_down])
-        {
-            #ifdef DEBUG
-                printf("returned false\n");
-            #endif
-            return false;
-        }
-        one_down = two_down;
-        two_down = back_inbound(stack_a, one_down) - 1;
-        i++;
-    }
-    #ifdef DEBUG
-        printf("returned true\n");
-    #endif
-    return true;
-}
-
 void sort_three(t_stack *stack)
 {
     int minimum;
@@ -131,5 +93,30 @@ void sort_three(t_stack *stack)
     #ifdef DEBUG
         printf("sort_three() = \n");
         print_stack(stack);
+    #endif
+}
+
+void split_stack_ab(t_stack *stack_a, t_stack *stack_b)
+{
+    int average = get_average(stack_a);
+
+    int x;
+    int i = 0;
+    int top_dup = stack_a->top;
+    int index_to_check = stack_a->top - 1 - i;
+
+    while (i < top_dup)
+    {
+        if (stack_a->p_array[index_to_check - i] > average)
+        {
+            x = rotate_to_top(stack_a, stack_a->p_array[index_to_check - i]);
+            push(stack_a, stack_b);
+            index_to_check = index_to_check + x;
+        }
+        i++;
+    }
+    #ifdef DEBUG
+        print_stack(stack_a);
+        print_stack(stack_b);
     #endif
 }

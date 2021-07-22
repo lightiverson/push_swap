@@ -33,3 +33,7 @@ make
 ## Authors
 
 - [@lightiverson](https://www.github.com/lightiverson)
+
+## Todo
+
+- Improve file organisation

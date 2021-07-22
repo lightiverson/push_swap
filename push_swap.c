@@ -44,12 +44,17 @@ int main(int argc, char *argv[])
     #endif
 
 	// bubble_sort(&stacks['a']);
-    // int x = get_minimum(stacks['a'].p_array, stacks['a'].top);
-    // get_index(stacks['a'].p_array, stacks['a'].top, x);
-    // is_ordered(&(stacks['a']));
 
-    sort_three(&(stacks['a']));
+    // sort_three(&(stacks['a']));
+
+    split_stack_ab(&(stacks['a']),&(stacks['b']));
     print_stack(&(stacks['a']));
     print_stack(&(stacks['b']));
+
+    // sort_three(&(stacks['a']));
+    // sort_three(&(stacks['b']));
+    // print_stack(&(stacks['a']));
+    // print_stack(&(stacks['b']));
+
     return (0);
 }
