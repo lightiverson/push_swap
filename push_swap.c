@@ -47,14 +47,16 @@ int main(int argc, char *argv[])
 
     // sort_three(&(stacks['a']));
 
-    split_stack_ab(&(stacks['a']),&(stacks['b']));
-    print_stack(&(stacks['a']));
-    print_stack(&(stacks['b']));
+    // split_stack_ab(&(stacks['a']),&(stacks['b']));
+    // print_stack(&(stacks['a']));
+    // print_stack(&(stacks['b']));
 
     // sort_three(&(stacks['a']));
     // sort_three(&(stacks['b']));
     // print_stack(&(stacks['a']));
     // print_stack(&(stacks['b']));
+
+    printf("%d", is_ordered(&(stacks['a'])));
 
     return (0);
 }

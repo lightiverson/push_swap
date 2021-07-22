@@ -43,7 +43,7 @@ bool is_ordered(const t_stack *stack_a)
             return false;
         }
         one_down = two_down;
-        two_down = back_inbound(stack_a, one_down) - 1;
+        two_down = back_inbound(stack_a, one_down - 1);
         i++;
     }
     #ifdef DEBUG
