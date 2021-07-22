@@ -14,31 +14,37 @@ typedef struct s_stack
     char stack_name;
 } t_stack;
 
-// Push_swap.c
+// push_swap.c
 void push_swap(void);
 
-// Utilities.c
+// utilities.c
 void print_stack(const t_stack *stack);
 
-// Operations.c
+// operations.c
 int reverse_rotate(t_stack *stack);
 int rotate(t_stack *stack);
 int push(t_stack *stack_from, t_stack *stack_to);
 int swap(t_stack *stack);
 
-// Algorithms.c
+// algorithms.c
 void bubble_sort(t_stack *stack_a);
+void sort_three(t_stack *stack);
+void split_stack_ab(t_stack *stack_a, t_stack *stack_b);
 
-// Utilities_algorithms.c
-bool is_sorted(const t_stack *stack);
+// utilities_algorithms.c
+int rotate_to_top(t_stack *stack, int element);
+void rotate_to_top_minus_one(t_stack *stack, int element);
+
+// gets.c
 int get_minimum(const t_stack *stack);
 int get_maximum(const t_stack *stack);
 int get_index(const t_stack *stack, int element);
-bool is_in_array(const t_stack *stack, int x);
+int get_average(const t_stack *stack);
 
+// is.c
+bool is_in_array(const t_stack *stack, int x);
 int back_inbound(const t_stack *stack_a, int index);
 bool is_ordered(const t_stack *stack);
-void rotate_to_top(t_stack *stack, int element);
-void rotate_to_top_minus_one(t_stack *stack, int element);
-void sort_three(t_stack *stack);
+bool is_sorted(const t_stack *stack);
+
 #endif /* PUSH_SWAP_H */

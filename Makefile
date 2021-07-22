@@ -3,7 +3,9 @@ OBJ_FILES = push_swap.o \
 			operations.o \
 			utilities.o \
 			utilities_algorithms.o \
-			algorithms.o
+			algorithms.o \
+			gets.o \
+			is.o
 HEADER_FILES = push_swap.h
 CFLAGS = -g
 LIBFT = libft/libft.a
