@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 
 	// bubble_sort(&stacks['a']);
 
-    // sort_three(&(stacks['a']));
+    sort_three(&(stacks['a']));
 
     // split_stack_ab(&(stacks['a']),&(stacks['b']));
     // print_stack(&(stacks['a']));
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     // print_stack(&(stacks['a']));
     // print_stack(&(stacks['b']));
 
-    printf("%d", is_ordered(&(stacks['a'])));
+    // printf("%d", is_ordered(&(stacks['a'])));
 
     return (0);
 }

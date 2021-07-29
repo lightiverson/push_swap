@@ -84,7 +84,6 @@ int push(t_stack *stack_from, t_stack *stack_to)
 
 int swap(t_stack *stack)
 {
-    printf("s%c\n", stack->stack_name);
     int temp;
 
     if (stack->top < 2)
@@ -97,9 +96,11 @@ int swap(t_stack *stack)
     stack->p_array[stack->top - 1] = stack->p_array[stack->top - 2];
     stack->p_array[(stack->top) - 2] = temp;
 
-    #ifdef DEBUG
-        print_stack(stack);
-    #endif
-
     return (0);
+}
+
+void swap_a_or_b(t_stack *stack)
+{
+    swap(stack);
+    printf("s%c", stack->stack_name);
 }

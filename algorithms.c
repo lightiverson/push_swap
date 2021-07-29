@@ -26,7 +26,7 @@ void bubble_sort(t_stack *stack_a)
         while (k < l)
         {
             if (stack_a->p_array[index_last_element] > stack_a->p_array[index_second_last_element])
-                swap(stack_a);
+                swap_a_or_b(stack_a);
             if (l > 1)
     			rotate(stack_a);
             k++;
@@ -65,7 +65,7 @@ void bubble_sort(t_stack *stack_a)
 //         {
 //             if (stack_a->p_array[index_last_element] > stack_a->p_array[index_second_last_element])
 //             {
-//                 swap(stack_a);
+//                 swap_a_or_b(stack_a);
 //                 rotate(stack_a);
 //             }
 //             j++;
@@ -89,7 +89,7 @@ void sort_three(t_stack *stack)
         return;
     }
     rotate_to_top_minus_one(stack, minimum);
-    swap(stack);
+    swap_a_or_b(stack);
     #ifdef DEBUG
         printf("sort_three() = \n");
         print_stack(stack);
