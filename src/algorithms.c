@@ -74,49 +74,50 @@ void bubble_sort(t_stack *stack_a)
 //     }
 // }
 
-void sort_three(t_stack *stack)
+void sort_three(t_stack *stack_a)
 {
     int minimum;
 
-    minimum = get_minimum(stack);
-    if (is_ordered(stack))
+    minimum = get_minimum(stack_a);
+    if (is_ordered_a(stack_a))
     {
-        rotate_to_top(stack, minimum);
+        rotate_to_top(stack_a, minimum);
         #ifdef DEBUG
             printf("sort_three() = \n");
-            print_stack(stack);
+            print_stack(stack_a);
         #endif
         return;
     }
-    rotate_to_top_minus_one(stack, minimum);
-    swap_a_or_b(stack);
+    rotate_to_top_minus_one(stack_a, minimum);
+    swap_a_or_b(stack_a);
     #ifdef DEBUG
         printf("sort_three() = \n");
-        print_stack(stack);
+        print_stack(stack_a);
     #endif
 }
 
-void split_stack_ab(t_stack *stack_a, t_stack *stack_b)
+void sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-    int average = get_average(stack_a);
+    split_stack_ab(stack_a, stack_b);
+    print_stack(stack_a);
+    print_stack(stack_b);
 
-    int x;
-    int i = 0;
-    int top_dup = stack_a->top;
-    int index_to_check = stack_a->top - 1 - i;
+    // push(stack_a, stack_b);
+    // print_stack(stack_a);
+    // print_stack(stack_b);
 
-    while (i < top_dup)
-    {
-        if (stack_a->p_array[index_to_check - i] > average)
-        {
-            x = rotate_to_top(stack_a, stack_a->p_array[index_to_check - i]);
-            push(stack_a, stack_b);
-            index_to_check = index_to_check + x;
-        }
-        i++;
-    }
-    #ifdef DEBUG
-        print_stack(stack_a);
-        print_stack(stack_b);
-    #endif
+    printf("is_ordered() = %d\n", is_ordered_b(stack_b));
+
+    // int minimum;
+
+    // minimum = get_minimum(stack_a);
+    // if (is_ordered(stack_a))
+    // {
+    //     rotate_to_top(stack_a, minimum);
+    //     return;
+    // }
+    // rotate_to_top_minus_one(stack_a, minimum);
+    // swap_ab(stack_a, stack_b);
+    // print_stack(stack_a);
+    // print_stack(stack_b);
 }

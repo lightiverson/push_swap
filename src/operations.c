@@ -102,12 +102,12 @@ static int swap(t_stack *stack)
 void swap_a_or_b(t_stack *stack)
 {
     swap(stack);
-    printf("s%c", stack->stack_name);
+    printf("s%c\n", stack->stack_name);
 }
 
 void swap_ab(t_stack *stack_a, t_stack *stack_b)
 {
-    swap_a_or_b(stack_a);
-    swap_a_or_b(stack_b);
-    printf("ss");
+    swap(stack_a);
+    swap(stack_b);
+    printf("ss\n");
 }
