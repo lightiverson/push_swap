@@ -82,7 +82,7 @@ int push(t_stack *stack_from, t_stack *stack_to)
     return (0);
 }
 
-int swap(t_stack *stack)
+static int swap(t_stack *stack)
 {
     int temp;
 
@@ -103,4 +103,11 @@ void swap_a_or_b(t_stack *stack)
 {
     swap(stack);
     printf("s%c", stack->stack_name);
+}
+
+void swap_ab(t_stack *stack_a, t_stack *stack_b)
+{
+    swap_a_or_b(stack_a);
+    swap_a_or_b(stack_b);
+    printf("ss");
 }
