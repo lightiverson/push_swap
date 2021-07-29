@@ -2,7 +2,7 @@
 #define PUSH_SWAP_H
 
 #include <stdio.h>
-#include "./libft/libft.h"
+#include "../libft/libft.h"
 #include <stdbool.h>
 
 // Define struct to represent stack datatype

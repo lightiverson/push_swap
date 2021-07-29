@@ -1,3 +1,4 @@
+VPATH = ./src
 NAME = push_swap
 OBJ_FILES = push_swap.o \
 			operations.o \
