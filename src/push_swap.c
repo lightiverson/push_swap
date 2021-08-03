@@ -34,14 +34,38 @@ static void initialize_stack(t_stack *stack, int len, char stack_name)
 int main(int argc, char *argv[])
 {
     t_stack stacks['c'];
+	int minimum;
+
     initialize_stack(&(stacks['a']), argc - 1, 'a');
     populate_stack(argv, &(stacks['a']));
     initialize_stack(&(stacks['b']), argc - 1, 'b');
-
     #ifdef DEBUG
         print_stack(&(stacks['a']));
         print_stack(&(stacks['b']));
     #endif
+
+	// General check: if this is the case no algo is really needed.
+	if (is_sorted_a(&(stacks['a'])))
+	{
+		#ifdef DEBUG
+			printf("is_sorted_a() == true\n");
+			print_stack(&(stacks['a']));
+			print_stack(&(stacks['b']));
+		#endif
+		return (0);
+	}
+
+	// General check: if this is the case no algo is really needed.
+	if (is_ordered_a(&(stacks['a'])))
+	{
+		rotate_to_top(&(stacks['a']), minimum);
+		#ifdef DEBUG
+			printf("is_ordered_a() == true\n");
+			print_stack(&(stacks['a']));
+			print_stack(&(stacks['b']));
+		#endif
+		return (0);
+	}
 
 	// bubble_sort(&stacks['a']);
 
@@ -59,6 +83,8 @@ int main(int argc, char *argv[])
     // printf("%d", is_ordered(&(stacks['a'])));
 
     sort_five(&(stacks['a']),&(stacks['b']));
+
+	// sort_three(&(stacks['a']),&(stacks['b']));
 
     return (0);
 }

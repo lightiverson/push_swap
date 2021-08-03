@@ -24,7 +24,7 @@ void print_stack(const t_stack *stack);
 void bubble_sort(t_stack *stack_a);
 
 // sort_three.c
-void sort_three(t_stack *stack_a);
+void sort_three(t_stack *stack_a, t_stack *stack_b);
 
 // sort_five.c
 void sort_five(t_stack *stack_a, t_stack *stack_b);

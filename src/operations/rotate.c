@@ -35,3 +35,13 @@ void rotate_ab(t_stack *stack_a, t_stack *stack_b)
     rotate(stack_b);
     printf("rr\n");
 }
+
+void special_rotate(t_stack *stack_a, t_stack *stack_b)
+{
+	if (!is_sorted_b(stack_b))
+		rotate_ab(stack_a, stack_b);
+	else
+	{
+	    rotate_a_or_b(stack_a);
+	}
+}
