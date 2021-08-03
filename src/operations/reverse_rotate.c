@@ -1,8 +1,7 @@
 #include "../push_swap.h"
 
-int reverse_rotate(t_stack *stack)
+static int reverse_rotate(t_stack *stack)
 {
-    printf("rr%c\n", stack->stack_name);
     int i;
     int first_element;
 
@@ -23,4 +22,17 @@ int reverse_rotate(t_stack *stack)
     stack->p_array[stack->top - 1] = first_element;
 
     return (0);
+}
+
+void reverse_rotate_a_or_b(t_stack *stack)
+{
+	reverse_rotate(stack);
+	printf("rr%c\n", stack->stack_name);
+}
+
+void reverse_rotate_ab(t_stack *stack_a, t_stack *stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	printf("rrr\n");
 }

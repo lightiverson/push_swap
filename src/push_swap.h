@@ -20,11 +20,18 @@ void push_swap(void);
 // utilities.c
 void print_stack(const t_stack *stack);
 
-// ./operations/*.c
+// ./operations/push.c
 int push(t_stack *stack_from, t_stack *stack_to);
-int reverse_rotate(t_stack *stack);
+
+// ./operations/reverse_rotate.c
+void reverse_rotate_a_or_b(t_stack *stack);
+void reverse_rotate_ab(t_stack *stack_a, t_stack *stack_b);
+
+// .operations/rotate.c
 void rotate_a_or_b(t_stack *stack);
 void rotate_ab(t_stack *stack_a, t_stack *stack_b);
+
+// .operations/swap.c
 void swap_a_or_b(t_stack *stack);
 void swap_ab(t_stack *stack_a, t_stack *stack_b);
 
