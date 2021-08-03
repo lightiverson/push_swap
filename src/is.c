@@ -42,6 +42,25 @@ bool is_ordered_a(const t_stack *stack_a)
     return true;
 }
 
+bool is_sorted_a(const t_stack *stack_a)
+{
+    int i;
+    int j;
+
+    if (stack_a->top == 1)
+        return true;
+    i = stack_a->top - 1;
+    j = stack_a->top - 2;
+    while (j > -1)
+    {
+		if (stack_a->p_array[j] < stack_a->p_array[i])
+			return false;
+		i--;
+        j--;
+    }
+    return true;
+}
+
 bool is_ordered_b(const t_stack *stack_b)
 {
     int i = 0;
@@ -63,18 +82,18 @@ bool is_ordered_b(const t_stack *stack_b)
     return true;
 }
 
-bool is_sorted_a(const t_stack *stack)
+bool is_sorted_b(const t_stack *stack_b)
 {
     int i;
     int j;
 
-    i = stack->top - 1;
-    j = stack->top - 2;
-    if (stack->top == 1)
+    if (stack_b->top == 1)
         return true;
+    i = stack_b->top - 1;
+    j = stack_b->top - 2;
     while (j > -1)
     {
-		if (stack->p_array[j] < stack->p_array[i])
+		if (stack_b->p_array[j] > stack_b->p_array[i])
 			return false;
 		i--;
         j--;

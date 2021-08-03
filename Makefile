@@ -1,12 +1,17 @@
-VPATH = ./src
+VPATH = ./src:./src/operations
 NAME = push_swap
 OBJ_FILES = push_swap.o \
-			operations.o \
 			utilities.o \
 			utilities_algorithms.o \
 			algorithms.o \
 			gets.o \
-			is.o
+			is.o \
+			sort_three.o \
+			sort_five.o \
+			push.o \
+			reverse_rotate.o \
+			rotate.o \
+			swap.o
 HEADER_FILES = push_swap.h
 CFLAGS = -g
 LIBFT = libft/libft.a

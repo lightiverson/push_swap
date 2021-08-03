@@ -14,7 +14,7 @@ int rotate_to_top(t_stack *stack, int element)
         if (index_element < middle_of_stack)
             reverse_rotate(stack);
         else
-            rotate(stack);
+            rotate_a_or_b(stack);
         number_of_rotations++;
     }
     return (number_of_rotations);
@@ -32,7 +32,7 @@ void rotate_to_top_minus_one(t_stack *stack, int element)
         if (index_element > middle_of_stack)
             reverse_rotate(stack);
         else
-            rotate(stack);
+            rotate_a_or_b(stack);
     }
 }
 
