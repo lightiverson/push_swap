@@ -1,5 +1,5 @@
-#include "push_swap.h"
-#include "./operations/operations.h"
+#include "../push_swap.h"
+#include "../operations/operations.h"
 
 /*
 Als het grootste getal op top staat, verspilt het algoritme veel moves.

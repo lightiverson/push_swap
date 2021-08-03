@@ -20,20 +20,6 @@ void push_swap(void);
 // utilities.c
 void print_stack(const t_stack *stack);
 
-// algorithms.c
-void bubble_sort(t_stack *stack_a);
-
-// sort_three.c
-void sort_three(t_stack *stack_a, t_stack *stack_b);
-
-// sort_five.c
-void sort_five(t_stack *stack_a, t_stack *stack_b);
-
-// utilities_algorithms.c
-void split_stack_ab(t_stack *stack_a, t_stack *stack_b);
-void rotate_to_top_minus_one(t_stack *stack, int element);
-int rotate_to_top(t_stack *stack, int element);
-
 // gets.c
 int get_minimum(const t_stack *stack);
 int get_maximum(const t_stack *stack);

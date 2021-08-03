@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include "./algorithms/algorithms.h"
 
 static void populate_stack(char *argv[], t_stack *stack)
 {

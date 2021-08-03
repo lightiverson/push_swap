@@ -1,4 +1,4 @@
-VPATH = ./src:./src/operations
+VPATH = ./src:./src/operations:./src/algorithms
 NAME = push_swap
 OBJ_FILES = push_swap.o \
 			utilities.o \

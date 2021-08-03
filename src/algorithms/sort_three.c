@@ -1,5 +1,5 @@
-#include "push_swap.h"
-#include "./operations/operations.h"
+#include "../push_swap.h"
+#include "../operations/operations.h"
 
 void sort_three(t_stack *stack_a, t_stack *stack_b)
 {
