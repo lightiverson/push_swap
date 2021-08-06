@@ -1,4 +1,4 @@
-VPATH = ./src:./src/operations:./src/algorithms
+VPATH = ./src:./src/operations:./src/algorithms:./src/checks
 NAME = push_swap
 OBJ_FILES = push_swap.o \
 			utilities.o \
@@ -11,7 +11,8 @@ OBJ_FILES = push_swap.o \
 			push.o \
 			reverse_rotate.o \
 			rotate.o \
-			swap.o
+			swap.o \
+			checks.o
 HEADER_FILES = push_swap.h
 CFLAGS = -g
 LIBFT = libft/libft.a
