@@ -35,7 +35,20 @@ static void initialize_stack(t_stack *stack, int len, char stack_name)
 
 int main(int argc, char *argv[])
 {
+    t_stack stacks['c'];
+	int minimum;
+
 	is_error(argc, argv);
+
+	// Todo: create own version of strtol function. Rather than atoi, because of sanitization.
+
+    initialize_stack(&(stacks['a']), argc - 1, 'a');
+    populate_stack(argv, &(stacks['a']));
+    initialize_stack(&(stacks['b']), argc - 1, 'b');
+    #ifdef DEBUG
+        print_stack(&(stacks['a']));
+        print_stack(&(stacks['b']));
+    #endif
 }
 
 // int main(int argc, char *argv[])
