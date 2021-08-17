@@ -39,7 +39,7 @@ void reverse_rotate_ab(t_stack *stack_a, t_stack *stack_b)
 
 void special_reverse_rotate(t_stack *stack_a, t_stack *stack_b)
 {
-	if (!is_sorted_b(stack_b))
+	if (!is_sorted(stack_b))
 		reverse_rotate_ab(stack_a, stack_b);
 	else
 	{

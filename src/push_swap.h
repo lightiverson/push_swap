@@ -19,6 +19,7 @@ void push_swap(void);
 
 // utilities.c
 void print_stack(const t_stack *stack);
+void free_stacks(t_stack *stack_a, t_stack *stack_b);
 
 // gets.c
 int get_minimum(const t_stack *stack);
@@ -29,9 +30,7 @@ int get_average(const t_stack *stack);
 // is.c
 bool is_in_array(const t_stack *stack, int x);
 int back_inbound(const t_stack *stack_a, int index);
-bool is_ordered_a(const t_stack *stack_a);
-bool is_sorted_a(const t_stack *stack_a);
-bool is_ordered_b(const t_stack *stack_b);
-bool is_sorted_b(const t_stack *stack_b);
+bool is_ordered(const t_stack *stack);
+bool is_sorted(const t_stack *stack);
 
 #endif /* PUSH_SWAP_H */
