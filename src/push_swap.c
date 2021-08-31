@@ -15,7 +15,9 @@ int main(int argc, char *argv[])
     // print_stack(&(stacks['b']));
 
     if (argc < 5)
-    	sort_three(&(stacks['a']), &(stacks['b']));
+    	// sort_three(&(stacks['a']), &(stacks['b']));
+    	// alpha(&(stacks['a']));
+    	beta(&(stacks['a']), 2);
     else if (argc < 7)
         sort_five(&(stacks['a']), &(stacks['b']));
 

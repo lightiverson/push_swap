@@ -33,4 +33,6 @@ int back_inbound(const t_stack *stack_a, int index);
 bool is_ordered(const t_stack *stack);
 bool is_sorted(const t_stack *stack);
 
+void beta(t_stack *stack, int origin);
+
 #endif /* PUSH_SWAP_H */
