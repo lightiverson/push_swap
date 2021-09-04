@@ -80,6 +80,7 @@ int get_insert_value(t_stack *stack, int origin)
     {
         insert_value = get_minimum(stack);
         printf("%d should be pushed on top of %d\n", origin, insert_value);
+        free(p_distance_array);
         return (insert_value);
     }
 
@@ -87,11 +88,13 @@ int get_insert_value(t_stack *stack, int origin)
     {
         insert_value = get_maximum(stack);
         printf("%d should be pushed on top of %d\n", origin, insert_value);
+        free(p_distance_array);
         return (insert_value);
     }
 
     insert_value = get_minimum_positive(stack, p_distance_array);
     printf("%d should be pushed on top of %d\n", origin, insert_value);
+    free(p_distance_array);
     return (insert_value);
 }
 
