@@ -112,3 +112,16 @@ int get_insert_value(t_stack *stack, int origin)
     printf("%d should be pushed on top of %d\n", origin, insert_value);
     return (insert_value);
 }
+
+// 1 5 2 4 3
+// pb + pb
+// 2 4 3
+// 5 1
+// rra + sa
+// 2 3 4
+// 5 1
+// pb
+// 5 2 3 4
+// 1
+// ra + pb
+// 1 2 3 4 5
