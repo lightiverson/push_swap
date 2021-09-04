@@ -56,7 +56,7 @@ void sort_three(t_stack *stack_a, t_stack *stack_b)
 // 	}
 // }
 
-void alpha(t_stack *stack_a)
+void beta(t_stack *stack_a)
 {
 	int minimum;
 	int index_minimum;
