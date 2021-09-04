@@ -11,24 +11,24 @@ int main(int argc, char *argv[])
     initialize_stack(&(stacks['a']), argc - 1, 'a');
     populate_stack(argv, &(stacks['a']));
     initialize_stack(&(stacks['b']), argc - 1, 'b');
-    // print_stack(&(stacks['a']));
-    // print_stack(&(stacks['b']));
+    print_stack(&(stacks['a']));
+    print_stack(&(stacks['b']));
 
-    // if (argc < 5)
-    // 	// sort_three(&(stacks['a']), &(stacks['b']));
-    // 	// alpha(&(stacks['a']));
-    // 	beta(&(stacks['a']), 2);
-    // else if (argc < 7)
-    //     sort_five(&(stacks['a']), &(stacks['b']));
+    if (argc < 5)
+    	// sort_three(&(stacks['a']), &(stacks['b']));
+    	// alpha(&(stacks['a']));
+    	beta(&(stacks['a']));
+    else if (argc < 7)
+        sort_five(&(stacks['a']), &(stacks['b']));
 
     // int *p_distance_array = create_distance_array(&(stacks['a']), 2);
     // get_insert_index(&(stacks['a']), 7);
     // get_minimum_positive(&(stacks['a']));
-    get_insert_value(&(stacks['a']), 3);
+    // get_insert_value(&(stacks['a']), 3);
 
-    // print_stack(&(stacks['a']));
-    // print_stack(&(stacks['b']));
-    // free_stacks(&(stacks['a']), &(stacks['b']));
+    print_stack(&(stacks['a']));
+    print_stack(&(stacks['b']));
+    free_stacks(&(stacks['a']), &(stacks['b']));
 
 	// General check: if this is the case no algo is really needed.
 	// if (is_sorted_a(&(stacks['a'])))
