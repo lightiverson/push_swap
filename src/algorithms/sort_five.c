@@ -2,12 +2,7 @@
 #include "../operations/operations.h"
 #include "algorithms.h"
 
-void sort_five(t_stack *stack_a, t_stack *stack_b)
-{
-    ;
-}
-
-int *create_distance_array(t_stack *stack, int origin)
+static int *create_distance_array(const t_stack *stack, int origin)
 {
     int i;
     int *p_distance_array;
@@ -35,7 +30,7 @@ int *create_distance_array(t_stack *stack, int origin)
     return p_distance_array;
 }
 
-int get_minimum_positive(const t_stack *stack, int *p_distance_array)
+static int get_minimum_positive(const t_stack *stack, int *p_distance_array)
 {
     int i;
     int minimum_positive;
@@ -57,7 +52,7 @@ int get_minimum_positive(const t_stack *stack, int *p_distance_array)
 
     while (i < stack->top)
     {
-        if ((p_distance_array[i] < minimum_positive) && (p_distance_array[i] > -1))
+        if ((stack->p_array[i] < minimum_positive) && (p_distance_array[i] > -1))
             minimum_positive = stack->p_array[i];
         i++;
     }
@@ -69,44 +64,79 @@ int get_minimum_positive(const t_stack *stack, int *p_distance_array)
     return minimum_positive;
 }
 
-int get_insert_value(t_stack *stack, int origin)
+static int get_insert_value(const t_stack *destination_stack, int origin)
 {
     int insert_value;
     int *p_distance_array;
 
-    p_distance_array = create_distance_array(stack, origin);
+    p_distance_array = create_distance_array(destination_stack, origin);
 
-    if (origin < get_minimum(stack))
+    if (origin < get_minimum(destination_stack))
     {
-        insert_value = get_minimum(stack);
-        printf("%d should be pushed on top of %d\n", origin, insert_value);
+        insert_value = get_minimum(destination_stack);
+        #ifdef DEBUG
+            printf("%d should be pushed on top of %d\n", origin, insert_value);
+        #endif
         free(p_distance_array);
         return (insert_value);
     }
 
-    if (origin > get_maximum(stack))
+    if (origin > get_maximum(destination_stack))
     {
-        insert_value = get_maximum(stack);
-        printf("%d should be pushed on top of %d\n", origin, insert_value);
+        // insert_value = get_maximum(destination_stack);
+        insert_value = get_minimum(destination_stack);
+        #ifdef DEBUG
+            printf("%d should be pushed on top of %d\n", origin, insert_value);
+        #endif
         free(p_distance_array);
         return (insert_value);
     }
 
-    insert_value = get_minimum_positive(stack, p_distance_array);
-    printf("%d should be pushed on top of %d\n", origin, insert_value);
+    insert_value = get_minimum_positive(destination_stack, p_distance_array);
+    #ifdef DEBUG
+        printf("%d should be pushed on top of %d\n", origin, insert_value);
+    #endif
     free(p_distance_array);
     return (insert_value);
 }
 
-// 1 5 2 4 3
-// pb + pb
-// 2 4 3
-// 5 1
-// rra + sa
-// 2 3 4
-// 5 1
-// pb
-// 5 2 3 4
-// 1
-// ra + pb
-// 1 2 3 4 5
+static void insert_into_stack(t_stack *origin_stack, t_stack *destination_stack)
+{
+    int insert_value;
+
+    insert_value = get_insert_value(destination_stack, origin_stack->p_array[origin_stack->top - 1]); // = 48 moet 47 zijn
+    printf("insert_value = %d\n", insert_value);
+    // Is er een case waarbij de insert_value niet correct gevonden kan worden?
+    rotate_to_top(destination_stack, insert_value);
+    push(origin_stack, destination_stack);
+}
+
+void sort_five(t_stack *stack_a, t_stack *stack_b)
+{
+    #ifdef DEBUG
+        printf("sort_five()\n");
+    #endif
+
+    // Protection voor deze functie?
+    if ((stack_a->top - 1) < 4 || (stack_a->top - 1) > 5)
+    {
+        printf("Stack A is smaller than 4 OR larger than 5");
+        printf("Program error: wrong algo used on n size stack");
+        exit(EXIT_FAILURE);
+    }
+
+    push(stack_a, stack_b);
+    push(stack_a, stack_b);
+    print_stack(stack_a);
+    print_stack(stack_b);
+
+    sort_three(stack_a);
+    print_stack(stack_a);
+    print_stack(stack_b);
+
+    insert_into_stack(stack_b, stack_a);
+    print_stack(stack_a);
+    print_stack(stack_b);
+
+    insert_into_stack(stack_b, stack_a);
+}

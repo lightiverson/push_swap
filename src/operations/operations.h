@@ -4,7 +4,7 @@
 // #include "../push_swap.h"
 
 // push.c
-int push(t_stack *stack_from, t_stack *stack_to);
+int push(t_stack *origin_stack, t_stack *destination_stack);
 
 // reverse_rotate.c
 void reverse_rotate_a_or_b(t_stack *stack);

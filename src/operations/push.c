@@ -1,22 +1,22 @@
 #include "../push_swap.h"
 
-int push(t_stack *stack_from, t_stack *stack_to)
+int push(t_stack *origin_stack, t_stack *destination_stack)
 {
     int first_element;
 
-    if (stack_from->top == 0)
+    if (origin_stack->top == 0)
     {
         printf("Stack_from is empty! Return error.\n");
         return (1);
     }
 
-    first_element = stack_from->p_array[stack_from->top -1];
-    stack_from->top--;
+    first_element = origin_stack->p_array[origin_stack->top -1];
+    origin_stack->top--;
 
-    stack_to->p_array[stack_to->top] = first_element;
-    stack_to->top++;
+    destination_stack->p_array[destination_stack->top] = first_element;
+    destination_stack->top++;
 
-    printf("p%c\n", stack_from->stack_name);
+    printf("p%c\n", origin_stack->stack_name);
 
     return (0);
 }
