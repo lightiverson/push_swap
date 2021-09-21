@@ -105,8 +105,7 @@ static void insert_into_stack(t_stack *origin_stack, t_stack *destination_stack)
     int insert_value;
 
     insert_value = get_insert_value(destination_stack, origin_stack->p_array[origin_stack->top - 1]); // = 48 moet 47 zijn
-    printf("insert_value = %d\n", insert_value);
-    // Is er een case waarbij de insert_value niet correct gevonden kan worden?
+    // Is er een case waarbij de insert_value niet correct gevonden kan worden? Zo ja wat doe je dan?
     rotate_to_top(destination_stack, insert_value);
     push(origin_stack, destination_stack);
 }
@@ -118,25 +117,18 @@ void sort_five(t_stack *stack_a, t_stack *stack_b)
     #endif
 
     // Protection voor deze functie?
-    if ((stack_a->top - 1) < 4 || (stack_a->top - 1) > 5)
+    if (stack_a->top < 4 && stack_a->top > 5)
     {
-        printf("Stack A is smaller than 4 OR larger than 5");
-        printf("Program error: wrong algo used on n size stack");
+        printf("stack_a->top = %d\n", stack_a->top);
+        printf("Stack A's N is smaller than 4 OR larger than 5\n");
+        printf("Program error: wrong algo used on N size stack");
         exit(EXIT_FAILURE);
     }
 
     push(stack_a, stack_b);
     push(stack_a, stack_b);
-    print_stack(stack_a);
-    print_stack(stack_b);
-
     sort_three(stack_a);
-    print_stack(stack_a);
-    print_stack(stack_b);
-
     insert_into_stack(stack_b, stack_a);
-    print_stack(stack_a);
-    print_stack(stack_b);
-
     insert_into_stack(stack_b, stack_a);
+    rotate_to_top(stack_a, get_minimum(stack_a));
 }
