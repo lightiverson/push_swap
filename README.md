@@ -12,6 +12,7 @@ The goal of this project is to learn how to succesfully manipulate various types
 ## FAQ
 How to execute push_swap with random arguments:
 ARGS=$(shuf -i 0-10000 -n 5 | tr '\n' ' '); ./push_swap $(echo $ARGS)
+ARGS=$(shuf -i 0-10000 -n 5 | tr '\n' ' '); ./push_swap $(echo $ARGS) | wc -l
 
 #### Result
 
