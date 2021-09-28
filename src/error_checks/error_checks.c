@@ -1,44 +1,48 @@
 #include "../push_swap.h"
 
-bool is_digit_or_minus_sign(int c)
+static void display_err_exit(void)
 {
-	if (ft_isdigit(c) || c == '-')
-		return (true);
-	else
-		return (false);
+    write(STDERR_FILENO, "Error\n", 6);
+    exit(EXIT_FAILURE);
 }
 
-bool contains_non_int(int argc, char* argv[])
+static void handle_negative(int *p_number, int *p_digit)
 {
-	int i;
-	char *arg;
-
-	i = 1;
-	while (i < argc)
-	{
-		arg = argv[i];
-		while (*arg)
-		{
-			if (!is_digit_or_minus_sign(*arg))
-				return (true);
-			arg++;
-		}
-		i++;
-	}
-	return (false);
+    if ((*p_number > INT_MAX / 10) || ((*p_number == INT_MAX / 10) && (*p_digit > INT_MAX % 10)))
+        display_err_exit();
+    *p_number = (*p_number * 10) + *p_digit;
 }
 
-bool is_error(int argc, char *argv[])
+static void handle_positive(int *p_number, int *p_digit)
 {
-	if (argc < 2)
-	{
-		printf("ERROR: You need at least one argument.\n");
-		return (true);
+    if ((*p_number < INT_MIN / 10) || ((*p_number == INT_MIN / 10) && (*p_digit > (INT_MIN % 10) * -1)))
+        display_err_exit();
+    *p_number = (*p_number * 10) - *p_digit;
+}
+
+int ft_strtoi(const char *str)
+{
+    bool is_negative;
+    int number;
+    int digit;
+
+    if (*str == '-')
+    {
+        is_negative = true;
+        str++;
     }
-	if (contains_non_int(argc, argv))
-	{
-		printf("ERROR: Contains non int\n");
-		return true;
-	}
-	return (false);
+    number = 0;
+    digit = 0;
+    while (*str)
+    {
+        if (!isdigit(*str))
+            display_err_exit();
+        digit = *str - '0';
+        if (!is_negative)
+            handle_negative(&number, &digit);
+        else
+            handle_positive(&number, &digit);
+        str++;
+    }
+    return (number);
 }

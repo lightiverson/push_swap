@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include "../libft/libft.h"
 #include <stdbool.h>
+#include <limits.h>
+
 
 // Define struct to represent stack datatype
 typedef struct s_stack
