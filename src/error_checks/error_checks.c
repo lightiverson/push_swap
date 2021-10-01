@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-static void display_err_exit(void)
+void display_err_exit(void)
 {
     write(STDERR_FILENO, "Error\n", 6);
     exit(EXIT_FAILURE);
@@ -35,7 +35,7 @@ int ft_strtoi(const char *str)
     digit = 0;
     while (*str)
     {
-        if (!isdigit(*str))
+        if (!ft_isdigit(*str))
             display_err_exit();
         digit = *str - '0';
         if (!is_negative)
@@ -45,4 +45,25 @@ int ft_strtoi(const char *str)
         str++;
     }
     return (number);
+}
+
+void check_duplicate(t_stack *stack)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while (i < stack->top)
+    {
+        while (j < stack->top)
+        {
+            if (i == j)
+                continue;
+            if (stack->p_array[i] == stack->p_array[j])
+                display_err_exit();
+            j++;
+        }
+        i++;
+    }
 }
