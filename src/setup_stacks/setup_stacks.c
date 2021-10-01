@@ -2,7 +2,7 @@
 #include "setup_stacks.h"
 #include "../error_checks/error_checks.h"
 
-void populate_stack(char *argv[], t_stack *stack)
+void populate_stack(int argc, char *argv[], t_stack *stack)
 {
     int i;
     int x;
@@ -10,13 +10,22 @@ void populate_stack(char *argv[], t_stack *stack)
 
     i = 1;
     j = stack->len - 1;
-    while (argv[i] != NULL) // MOET JE VERVANGEN DOOR ARGC! Op sommige systemen kan eerste argument van ARGV NULL zijn, als programma naam niet gelezen kan worden
+    while (i < argc)
     {
         x = ft_strtoi(argv[i]);
         stack->p_array[j] = x;
         stack->top++;
         j--;
         i++;
+    }
+
+    // while (argv[i] != NULL) // MOET JE VERVANGEN DOOR ARGC! Op sommige systemen kan eerste argument van ARGV NULL zijn, als programma naam niet gelezen kan worden
+    // {
+    //     x = ft_strtoi(argv[i]);
+    //     stack->p_array[j] = x;
+    //     stack->top++;
+    //     j--;
+    //     i++;
     }
 }
 

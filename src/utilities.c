@@ -20,18 +20,43 @@ void free_stacks(t_stack *stack_a, t_stack *stack_b)
     free(stack_b->p_array);
 }
 
-// void print_stack(const t_stack *stack)
-// {
-//     int i;
+static void handle_negative(int *p_number, int *p_digit)
+{
+    if ((*p_number > INT_MAX / 10) || ((*p_number == INT_MAX / 10) && (*p_digit > INT_MAX % 10)))
+        display_err_exit();
+    *p_number = (*p_number * 10) + *p_digit;
+}
 
-//     i = 0;
-//     printf("stack->name = %c\n", stack->stack_name);
-//     while (i < stack->top)
-//     {
-//         printf("%d", stack->p_array[i]);
-//         if (i != stack->top - 1)
-//             printf(", ");
-//         i++;
-//     }
-//     printf("\n----\n");
-// }
+static void handle_positive(int *p_number, int *p_digit)
+{
+    if ((*p_number < INT_MIN / 10) || ((*p_number == INT_MIN / 10) && (*p_digit > (INT_MIN % 10) * -1)))
+        display_err_exit();
+    *p_number = (*p_number * 10) - *p_digit;
+}
+
+int ft_strtoi(const char *str)
+{
+    bool is_negative;
+    int number;
+    int digit;
+
+    if (*str == '-')
+    {
+        is_negative = true;
+        str++;
+    }
+    number = 0;
+    digit = 0;
+    while (*str)
+    {
+        if (!ft_isdigit(*str))
+            display_err_exit();
+        digit = *str - '0';
+        if (!is_negative)
+            handle_negative(&number, &digit);
+        else
+            handle_positive(&number, &digit);
+        str++;
+    }
+    return (number);
+}

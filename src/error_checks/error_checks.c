@@ -6,64 +6,41 @@ void display_err_exit(void)
     exit(EXIT_FAILURE);
 }
 
-static void handle_negative(int *p_number, int *p_digit)
+void check_for_int_and_overflow(int argc, char *argv[])
 {
-    if ((*p_number > INT_MAX / 10) || ((*p_number == INT_MAX / 10) && (*p_digit > INT_MAX % 10)))
-        display_err_exit();
-    *p_number = (*p_number * 10) + *p_digit;
-}
-
-static void handle_positive(int *p_number, int *p_digit)
-{
-    if ((*p_number < INT_MIN / 10) || ((*p_number == INT_MIN / 10) && (*p_digit > (INT_MIN % 10) * -1)))
-        display_err_exit();
-    *p_number = (*p_number * 10) - *p_digit;
-}
-
-int ft_strtoi(const char *str)
-{
-    bool is_negative;
-    int number;
-    int digit;
-
-    if (*str == '-')
+    int i;
+    
+    i = 1;
+    while (i < argc)
     {
-        is_negative = true;
-        str++;
+        // checks if element is integer
+        // checks if element is bigger than integer
+        ft_strtoi(argv[i]); 
+        i++;
     }
-    number = 0;
-    digit = 0;
-    while (*str)
-    {
-        if (!ft_isdigit(*str))
-            display_err_exit();
-        digit = *str - '0';
-        if (!is_negative)
-            handle_negative(&number, &digit);
-        else
-            handle_positive(&number, &digit);
-        str++;
-    }
-    return (number);
 }
 
-void check_duplicate(t_stack *stack)
+void check_for_duplicates(int argc, char *argv[])
 {
     int i;
     int j;
 
-    i = 0;
-    j = 0;
-    while (i < stack->top)
+    i = 1;
+    j = 1;
+    while (i < argc)
     {
-        while (j < stack->top)
+        while (j < argc)
         {
             if (i == j)
+            {
+                j++;
                 continue;
-            if (stack->p_array[i] == stack->p_array[j])
+            }
+            if (!strcmp(argv[i], argv[j]))
                 display_err_exit();
             j++;
         }
+        j = 1;
         i++;
     }
 }

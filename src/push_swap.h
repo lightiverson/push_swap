@@ -6,6 +6,8 @@
 #include <stdbool.h>
 #include <limits.h>
 
+#define A   0
+#define B   1
 
 // Define struct to represent stack datatype
 typedef struct s_stack

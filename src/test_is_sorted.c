@@ -9,11 +9,11 @@ int main(int argc, char *argv[])
     bool x;
     t_stack stacks['c'];
 
-    initialize_stack(&(stacks['a']), argc - 1, 'a');
-    populate_stack(argv, &(stacks['a']));
-    initialize_stack(&(stacks['b']), argc - 1, 'b');
+    initialize_stack(&(stacks[A]), argc - 1, 'a');
+    populate_stack(argc, argv, &(stacks[A]));
+    initialize_stack(&(stacks[B]), argc - 1, 'b');
 
-    x = is_sorted(&(stacks['a']));
+    x = is_sorted(&(stacks[A]));
     printf("is_sorted = %d", x);
     return (0);
 }
