@@ -1,88 +1,78 @@
-#include <stdio.h>
-#include <unistd.h>
-#include "../src/push_swap.h"
-#include "../libft/libft.h"
-#include "../src/setup_stacks/setup_stacks.h"
-#include "../src/error_checks/error_checks.h"
-#include <string.h>
+#include "./checker.h"
 
-#define A   0
-#define B   1
-
-void check_for_int_and_overflow(int argc, char *argv[])
-{
-    int i;
+// void check_for_int_and_overflow(int argc, char *argv[])
+// {
+//     int i;
     
-    i = 1;
-    while (i < argc)
-    {
-        // checks if element is integer
-        // checks if element is bigger than integer
-        ft_strtoi(argv[i]); 
-        i++;
-    }
-}
+//     i = 1;
+//     while (i < argc)
+//     {
+//         // checks if element is integer
+//         // checks if element is bigger than integer
+//         ft_strtoi(argv[i]); 
+//         i++;
+//     }
+// }
 
-void check_for_duplicates(int argc, char *argv[])
-{
-    int i;
-    int j;
+// void check_for_duplicates(int argc, char *argv[])
+// {
+//     int i;
+//     int j;
 
-    i = 1;
-    j = 1;
-    while (i < argc)
-    {
-        while (j < argc)
-        {
-            if (i == j)
-            {
-                j++;
-                continue;
-            }
-            if (!strcmp(argv[i], argv[j]))
-                display_err_exit();
-            j++;
-        }
-        j = 1;
-        i++;
-    }
-}
+//     i = 1;
+//     j = 1;
+//     while (i < argc)
+//     {
+//         while (j < argc)
+//         {
+//             if (i == j)
+//             {
+//                 j++;
+//                 continue;
+//             }
+//             if (!strcmp(argv[i], argv[j]))
+//                 display_err_exit();
+//             j++;
+//         }
+//         j = 1;
+//         i++;
+//     }
+// }
 
-int main(int argc, char *argv[])
-{
-    char buf[9999];
-    int n;
-    char **split_result;
+// 1. while(get_next_line(stdin, char **line))
+// 3. zet **line in linked list
+// 2. free **line
 
-    while ((n = read(0, buf, sizeof(buf))) > 0)
-    {
-        write(1, buf, n);
-        line = strjoin(line, buf);
-    }
-    printf("buf = |%s|\n", buf);
-    printf("n = %d\n", n);
-
-    split_result = ft_split(buf, '\n');
-    while (*split_result)
-    {
-        printf("split_result = %s\n", *split_result);
-        split_result++;
-    }
-
-    // creeer stacks dmv argc en argv
-    // importeer operations functies
-    // functie schrijven bijv: "rra" = reverse_rotate_a()
-    //
-
-    // 1. while(get_next_line(stdin, char **line))
-    // 3. zet **line in linked list
-    // 2. free **line
-
-    return 0;
-}
+// creeer stacks dmv argc en argv
+// importeer operations functies
+// functie schrijven bijv: "rra" = reverse_rotate_a()
 
 // ./push_swap 0 2 1 | ./checker 0 2 1
 // gcc checker.c -o checker ./libft/libft.a ./src/setup_stacks/setup_stacks.c ./src/utilities.c
+
+// int main(int argc, char *argv[])
+// {
+//     char buf[9999];
+//     int n;
+//     char **split_result;
+
+//     while ((n = read(0, buf, sizeof(buf))) > 0)
+//     {
+//         write(1, buf, n);
+//         line = strjoin(line, buf);
+//     }
+//     printf("buf = |%s|\n", buf);
+//     printf("n = %d\n", n);
+
+//     split_result = ft_split(buf, '\n');
+//     while (*split_result)
+//     {
+//         printf("split_result = %s\n", *split_result);
+//         split_result++;
+//     }
+
+//     return (0);
+// }
 
 // int main(int argc, char *argv[])
 // {
@@ -96,7 +86,7 @@ int main(int argc, char *argv[])
 
 
 //     initialize_stack(&(stacks[A]), argc - 1, 'a');
-//     populate_stack(argv, &(stacks[A]));
+//     populate_stack(argc, argv, &(stacks[A]));
 //     initialize_stack(&(stacks[B]), argc - 1, 'b');
 
 //     print_stack(&(stacks[A]));
@@ -109,3 +99,93 @@ int main(int argc, char *argv[])
 
 //     return (0);
 // }
+
+// hoe compile je get next line samen met checker?
+
+// standard input fd = 0
+
+void alpha(t_stack *stack_a, t_stack *stack_b, char *operation)
+{
+    // printf("alpha()\n");
+    // if (*operation == "rra")
+    if (!strcmp(operation, "rra"))
+        reverse_rotate_a_or_b(stack_a);
+    // else if (*operation == "sa")
+    else if (!strcmp(operation, "sa"))
+        swap_a_or_b(stack_a);
+    else
+        printf("Did not recognize operation.\n");
+}
+
+int main(int argc, char *argv[])
+{
+    t_stack stacks[2];
+
+    if (argc <= 1)
+        exit(EXIT_FAILURE);
+    check_for_int_and_overflow(argc, argv);
+    check_for_duplicates(argc, argv);
+
+    initialize_stack(&(stacks[A]), argc - 1, 'a');
+    populate_stack(argc, argv, &(stacks[A]));
+    initialize_stack(&(stacks[B]), argc - 1, 'b');
+
+    print_stack(&(stacks[A]));
+    print_stack(&(stacks[B]));
+
+    // ##############################
+
+    // int i;
+    // char *operations[11];
+
+    // operations[0] = "sa";
+    // operations[1] = "sb";
+    // operations[2] = "ss";
+    // operations[3] = "pa";
+    // operations[4] = "pb";
+    // operations[5] = "ra";
+    // operations[6] = "rb";
+    // operations[7] = "rr";
+    // operations[8] = "rra";
+    // operations[9] = "rrb";
+    // operations[10] = "rrr";
+    // i = 0;
+    // while (i < 10)
+    // {
+    //     printf("operations[%d] = %s\n", i, operations[i]);
+    //     i++;
+    // }
+
+    // #############################
+
+    char **line;
+    while (get_next_line(0, line))
+    {
+        printf("*line = %s\n", *line);
+        alpha(&(stacks[A]), &(stacks[B]), *line);
+        // while (i < 10)
+        // {
+        //     printf("|%s| vs |%s|\n", *line, operations[i]);
+        //     printf("strcmp() = %d\n", strcmp(*line, operations[i]));
+        //     if (!strcmp(*line, operations[i]))
+        //     {
+        //         printf("|%s| == |%s|\n", *line, operations[i]);
+        //         i = 0;
+        //         break;
+        //     }
+        //     i++;
+        // }
+    }
+    printf("EOF reached\n");
+
+    print_stack(&(stacks[A]));
+    print_stack(&(stacks[B]));
+
+    // void (*p_reverse_rotate_a_or_b) (t_stack *stack);
+    // p_reverse_rotate_a_or_b = reverse_rotate_a_or_b;
+
+    // void (*p_swap_a_or_b) (t_stack *stack);
+    // p_swap_a_or_b = swap_a_or_b;
+    
+    return (0);
+}

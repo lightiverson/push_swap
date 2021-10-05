@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
+#include <string.h>
 #include <stdio.h>
 #include "../libft/libft.h"
 #include <stdbool.h>
@@ -24,6 +25,7 @@ void push_swap(void);
 // utilities.c
 void print_stack(const t_stack *stack);
 void free_stacks(t_stack *stack_a, t_stack *stack_b);
+int ft_strtoi(const char *str);
 
 // gets.c
 int get_minimum(const t_stack *stack);

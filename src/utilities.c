@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include "./error_checks/error_checks.h"
 
 void print_stack(const t_stack *stack)
 {

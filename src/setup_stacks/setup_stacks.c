@@ -26,7 +26,7 @@ void populate_stack(int argc, char *argv[], t_stack *stack)
     //     stack->top++;
     //     j--;
     //     i++;
-    }
+    // }
 }
 
 void initialize_stack(t_stack *stack, int len, char stack_name)
