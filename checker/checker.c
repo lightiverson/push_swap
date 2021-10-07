@@ -2,12 +2,26 @@
 
 void execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
 {
-    if (!strcmp(operation, "rra"))
-        reverse_rotate_a_or_b(stack_a);
-    else if (!strcmp(operation, "sa"))
+    if (!strcmp(operation, "sa"))
         swap_a_or_b(stack_a);
+    else if (!strcmp(operation, "sb"))
+        swap_a_or_b(stack_b);
+    else if (!strcmp(operation, "ss"))
+        swap_ab(stack_a, stack_b);
+    else if (!strcmp(operation, "pa"))
+        push(stack_a, stack_b);
+    else if (!strcmp(operation, "pb"))
+        push(stack_b, stack_a);
+    else if (!strcmp(operation, "ra"))
+        rotate_a_or_b(stack_a);
+    else if (!strcmp(operation, "rb"))
+        rotate_a_or_b(stack_b);
+    else if(!strcmp(operation, "rr"))
+        rotate_ab(stack_a, stack_b);
+    else if (!strcmp(operation, "rra"))
+        reverse_rotate_a_or_b(stack_a);
     else
-        printf("Did not recognize operation.\n");
+        display_err_exit();
 }
 
 int main(int argc, char *argv[])
@@ -32,7 +46,7 @@ int main(int argc, char *argv[])
 
     while (get_next_line(0, line))
     {
-        printf("*line = %s\n", *line);
+        // printf("*line = %s\n", *line);
         execute_operations(&(stacks[A]), &(stacks[B]), *line);
         // while (i < 10)
         // {
@@ -47,7 +61,13 @@ int main(int argc, char *argv[])
         //     i++;
         // }
     }
-    printf("EOF reached\n");
+
+    // #############################
+
+    if (is_sorted(&(stacks[A])) && stacks[B].top == 0)
+        write(1, "OK\n", 3);
+    else
+        write(1, "KO\n", 3);
 
     print_stack(&(stacks[A]));
     print_stack(&(stacks[B]));

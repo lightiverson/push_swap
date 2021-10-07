@@ -9,7 +9,9 @@ OBJ_FILES = checker.o \
 			reverse_rotate.o \
 			is.o \
 			gets.o \
-			swap.o
+			swap.o \
+			push.o \
+			rotate.o
 HEADER_FILES =	checker.h
 CFLAGS = -g
 LIBFT = ../libft/libft.a

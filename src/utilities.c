@@ -48,6 +48,8 @@ int ft_strtoi(const char *str)
     }
     number = 0;
     digit = 0;
+    if (*str == '\0')
+        display_err_exit();
     while (*str)
     {
         if (!ft_isdigit(*str))
@@ -61,3 +63,6 @@ int ft_strtoi(const char *str)
     }
     return (number);
 }
+
+// een empty string is een string met alleen een \0 character erin. Dus de while loop stopt vroegtijdig.
+// de while loop moet een andere conditional hebben dan \0????
