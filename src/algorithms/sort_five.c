@@ -1,6 +1,4 @@
 #include "../push_swap.h"
-#include "../operations/operations.h"
-#include "algorithms.h"
 
 static int *create_distance_array(const t_stack *stack, int origin)
 {
@@ -115,15 +113,6 @@ void sort_five(t_stack *stack_a, t_stack *stack_b)
     #ifdef DEBUG
         printf("sort_five()\n");
     #endif
-
-    // Protection voor deze functie?
-    if (stack_a->top < 4 && stack_a->top > 5)
-    {
-        printf("stack_a->top = %d\n", stack_a->top);
-        printf("Stack A's N is smaller than 4 OR larger than 5\n");
-        printf("Program error: wrong algo used on N size stack");
-        exit(EXIT_FAILURE);
-    }
 
     push(stack_a, stack_b);
     push(stack_a, stack_b);

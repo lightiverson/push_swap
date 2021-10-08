@@ -11,14 +11,14 @@ bool is_in_array(const t_stack *stack, int x)
             return true;
         i++;
     }
-    return false;
+    return (false);
 }
 
 int back_inbound(const t_stack *stack_a, int index)
 {
     if (index == -1)
         return stack_a->top - 1;
-    return index;
+    return (index);
 }
 
 bool is_ordered(const t_stack *stack)
@@ -62,12 +62,12 @@ bool is_sorted(const t_stack *stack)
         if (stack->stack_name == 'a')
         {
             if (stack->p_array[j] < stack->p_array[i])
-                return false;
+                return (false);
         }
         else
         {
             if (stack->p_array[j] > stack->p_array[i])
-                return false;
+                return (false);
         }
 		i--;
         j--;

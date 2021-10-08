@@ -1,6 +1,24 @@
 #include "../push_swap.h"
-#include "setup_stacks.h"
-#include "../error_checks/error_checks.h"
+
+void print_stack(const t_stack *stack)
+{
+    int i;
+
+    i = stack->top;
+    printf("stack->name = %c\n", stack->stack_name);
+    while (i)
+    {
+        printf("[%d] = %d\n", i - 1, stack->p_array[i - 1]);
+        i--;
+    }
+    printf("----\n");
+}
+
+void free_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+    free(stack_a->p_array);
+    free(stack_b->p_array);
+}
 
 void populate_stack(int argc, char *argv[], t_stack *stack)
 {
@@ -12,21 +30,12 @@ void populate_stack(int argc, char *argv[], t_stack *stack)
     j = stack->len - 1;
     while (i < argc)
     {
-        x = ft_strtoi(argv[i]);
+        x = mini_strtoi(argv[i]);
         stack->p_array[j] = x;
         stack->top++;
         j--;
         i++;
     }
-
-    // while (argv[i] != NULL) // MOET JE VERVANGEN DOOR ARGC! Op sommige systemen kan eerste argument van ARGV NULL zijn, als programma naam niet gelezen kan worden
-    // {
-    //     x = ft_strtoi(argv[i]);
-    //     stack->p_array[j] = x;
-    //     stack->top++;
-    //     j--;
-    //     i++;
-    // }
 }
 
 void initialize_stack(t_stack *stack, int len, char stack_name)

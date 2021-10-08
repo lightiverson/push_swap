@@ -1,11 +1,13 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
+// Deze moet weg
 #include <string.h>
+
 #include <stdio.h>
-#include "../libft/libft.h"
-#include <stdbool.h>
 #include <limits.h>
+#include <stdbool.h>
+#include "../libft/libft.h"
 
 #define A   0
 #define B   1
@@ -19,13 +21,16 @@ typedef struct s_stack
     char stack_name;
 } t_stack;
 
+#include "./error_checks/error_checks.h"
+#include "./setup_stacks/setup_stacks.h"
+#include "./algorithms/algorithms.h"
+#include "./operations/operations.h"
+
 // push_swap.c
 void push_swap(void);
 
 // utilities.c
-void print_stack(const t_stack *stack);
-void free_stacks(t_stack *stack_a, t_stack *stack_b);
-int ft_strtoi(const char *str);
+int mini_strtoi(const char *str);
 
 // gets.c
 int get_minimum(const t_stack *stack);

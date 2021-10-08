@@ -13,9 +13,7 @@ void check_for_int_and_overflow(int argc, char *argv[])
     i = 1;
     while (i < argc)
     {
-        // checks if element is integer
-        // checks if element is bigger than integer
-        ft_strtoi(argv[i]); 
+        mini_strtoi(argv[i]); 
         i++;
     }
 }

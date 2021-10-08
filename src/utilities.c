@@ -1,25 +1,4 @@
 #include "push_swap.h"
-#include "./error_checks/error_checks.h"
-
-void print_stack(const t_stack *stack)
-{
-    int i;
-
-    i = stack->top;
-    printf("stack->name = %c\n", stack->stack_name);
-    while (i)
-    {
-        printf("[%d] = %d\n", i - 1, stack->p_array[i - 1]);
-        i--;
-    }
-    printf("----\n");
-}
-
-void free_stacks(t_stack *stack_a, t_stack *stack_b)
-{
-    free(stack_a->p_array);
-    free(stack_b->p_array);
-}
 
 static void handle_negative(int *p_number, int *p_digit)
 {
@@ -35,7 +14,7 @@ static void handle_positive(int *p_number, int *p_digit)
     *p_number = (*p_number * 10) - *p_digit;
 }
 
-int ft_strtoi(const char *str)
+int mini_strtoi(const char *str)
 {
     bool is_negative;
     int number;
@@ -63,6 +42,3 @@ int ft_strtoi(const char *str)
     }
     return (number);
 }
-
-// een empty string is een string met alleen een \0 character erin. Dus de while loop stopt vroegtijdig.
-// de while loop moet een andere conditional hebben dan \0????

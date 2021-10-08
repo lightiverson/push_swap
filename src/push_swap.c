@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
     populate_stack(argc, argv, &(stacks[A]));
     initialize_stack(&(stacks[B]), argc - 1, 'b');
 
-    // print_stack(&(stacks[A]));
-    // print_stack(&(stacks[B]));
+    print_stack(&(stacks[A]));
+    print_stack(&(stacks[B]));
 
     if (is_sorted(&(stacks[A])))
     {
@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
     else if (argc == 5 || argc == 6)
         sort_five(&(stacks[A]), &(stacks[B]));
 
-    // print_stack(&(stacks[A]));
-    // print_stack(&(stacks[B]));
+    print_stack(&(stacks[A]));
+    print_stack(&(stacks[B]));
 
     free_stacks(&(stacks[A]), &(stacks[B]));
 

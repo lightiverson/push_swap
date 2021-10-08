@@ -3,7 +3,6 @@ NAME = push_swap
 OBJ_FILES = push_swap.o \
 			utilities.o \
 			utilities_algorithms.o \
-			algorithms.o \
 			gets.o \
 			is.o \
 			sort_three.o \
