@@ -1,7 +1,7 @@
 VPATH = ./src:./src/operations:./src/algorithms:./src/error_checks:./src/setup_stacks
 NAME = push_swap
 OBJ_FILES = push_swap.o \
-			utilities.o \
+			mini_strtoi.o \
 			utilities_algorithms.o \
 			gets.o \
 			is.o \

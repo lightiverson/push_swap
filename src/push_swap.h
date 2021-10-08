@@ -29,7 +29,7 @@ typedef struct s_stack
 // push_swap.c
 void push_swap(void);
 
-// utilities.c
+// mini_strtoi.c
 int mini_strtoi(const char *str);
 
 // gets.c

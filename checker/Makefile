@@ -2,7 +2,7 @@ VPATH = ../src:../src/operations:../src/algorithms:../src/error_checks:../src/se
 NAME = checker
 OBJ_FILES = checker.o \
 			setup_stacks.o \
-			utilities.o \
+			mini_strtoi.o \
 			error_checks.o \
 			get_next_line.o \
 			get_next_line_utils.o \
