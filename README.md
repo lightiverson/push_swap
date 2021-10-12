@@ -6,8 +6,9 @@ The goal of this project is to learn how to succesfully manipulate various types
 
 ## Todo
 
-- Create function to check stack a for duplicates, right after it is created.
-- Replace atoi with new strtoi, which has built in checks for overflow and underflow and uses exit().
+- Solve circular include issue with header files
+- ~~Create function to check stack a for duplicates, right after it is created.~~
+- ~~Replace atoi with new strtoi, which has built in checks for overflow and underflow and uses exit().~~
 - ~~Replace sort_three function with beta function. Make sure stacks of three are sorted correctly within two moves.~~
 - ~~Create new sort_five function that uses pa + pa + sort_three(stack_a) + [[ new functions written to merge from stack_b into stack_a ]]~~
 
