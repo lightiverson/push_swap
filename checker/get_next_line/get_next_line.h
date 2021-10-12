@@ -6,16 +6,16 @@
 /*   By: kawish <kawish@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/24 13:17:14 by kawish        #+#    #+#                 */
-/*   Updated: 2021/10/05 11:54:49 by kgajadie      ########   odam.nl         */
+/*   Updated: 2021/10/12 12:31:56 by kgajadie      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 # include <unistd.h>
 # include <stdlib.h>
