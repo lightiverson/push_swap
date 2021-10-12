@@ -2,7 +2,7 @@
 # define OPERATIONS_H
 
 // push.c
-void		push(t_stack *origin_stack, t_stack *destination_stack);
+void	push(t_stack *origin_stack, t_stack *destination_stack);
 
 // reverse_rotate.c
 void	reverse_rotate_a_or_b(t_stack *stack);
