@@ -54,3 +54,31 @@ void	check_for_duplicates(int argc, char *argv[])
 		i++;
 	}
 }
+
+void	check_for_duplicates_twee(t_stack *stack_a, t_stack *stack_b)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < stack_a->top)
+	{
+		while (j < stack_a->top)
+		{
+			if (i == j)
+			{
+				j++;
+				continue ;
+			}
+			if (stack_a->p_array[i] == stack_a->p_array[j])
+			{
+				free_stacks(stack_a, stack_b);
+				display_err_exit();
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+}

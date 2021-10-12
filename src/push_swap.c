@@ -8,11 +8,10 @@ int	main(int argc, char *argv[])
 	if (argc <= 1)
 		exit(EXIT_FAILURE);
 	check_for_int_and_overflow(argc, argv);
-	check_for_duplicates(argc, argv);
-
 	initialize_stack(&(stacks[A]), argc - 1, 'a');
 	populate_stack(argc, argv, &(stacks[A]));
 	initialize_stack(&(stacks[B]), argc - 1, 'b');
+	check_for_duplicates_twee(&(stacks[A]), &(stacks[B]));
 
 	print_stack(&(stacks[A]));
 	print_stack(&(stacks[B]));
