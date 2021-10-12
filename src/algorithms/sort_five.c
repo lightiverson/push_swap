@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "./algorithms.h"
 
 static	int	*create_distance_array(const t_stack *stack, int origin)
 {

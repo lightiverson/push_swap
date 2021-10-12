@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "./error_checks.h"
 
 void	display_err_exit(void)
 {

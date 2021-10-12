@@ -1,8 +1,4 @@
 #include "push_swap.h"
-#include "./algorithms/algorithms.h"
-#include "./error_checks/error_checks.h"
-#include "./setup_stacks/setup_stacks.h"
-#include "./operations/operations.h"
 
 int	main(int argc, char *argv[])
 {

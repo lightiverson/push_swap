@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "./algorithms.h"
 
 void	sort_three(t_stack *stack_a)
 {

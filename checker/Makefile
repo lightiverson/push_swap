@@ -1,4 +1,4 @@
-VPATH = ../src:../src/operations:../src/algorithms:../src/error_checks:../src/setup_stacks:./get_next_line
+VPATH = ../src:../src/operations:../src/algorithms:../src/error_checks:../src/setup_stacks:./get_next_line:../src/mini_strtoi:../src/is:../src/gets
 NAME = checker
 OBJ_FILES = checker.o \
 			setup_stacks.o \

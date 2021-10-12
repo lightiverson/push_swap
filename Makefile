@@ -1,19 +1,19 @@
-VPATH = ./src:./src/operations:./src/algorithms:./src/error_checks:./src/setup_stacks
+VPATH = ./src:./src/error_checks:./src/mini_strtoi:./src/setup_stacks:./src/gets:./src/is:./src/utilities_algorithms:./src/algorithms:./src/operations
 NAME = push_swap
 OBJ_FILES = push_swap.o \
+			setup_stacks.o \
 			mini_strtoi.o \
-			utilities_algorithms.o \
-			gets.o \
-			is.o \
-			sort_three.o \
-			sort_five.o \
-			push.o \
-			reverse_rotate.o \
-			rotate.o \
-			swap.o \
 			error_checks.o \
-			setup_stacks.o
-HEADER_FILES = push_swap.h
+			reverse_rotate.o \
+			is.o \
+			gets.o \
+			swap.o \
+			push.o \
+			rotate.o \
+			utilities_algorithms.o \
+			sort_three.o \
+			sort_five.o
+HEADER_FILES = push_swap.h struct.h
 CFLAGS = -g
 LIBFT = libft/libft.a
 

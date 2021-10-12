@@ -1,14 +1,16 @@
 #ifndef ALGORITHMS_H
 # define ALGORITHMS_H
 
-// sort_three.c
-void	sort_three(t_stack *stack_a);
+# include "../struct.h"
+# include "../gets/gets.h"
+# include "../is/is.h"
+# include "../operations/operations.h"
+# include "../utilities_algorithms/utilities_algorithms.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include "../setup_stacks/setup_stacks.h"
 
-// sort_five.c
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
-
-// utilities_algorithms.c
-void	split_stack_ab(t_stack *stack_a, t_stack *stack_b);
-int		rotate_to_top(t_stack *stack, int element);
+void	sort_three(t_stack *stack_a);
 
 #endif /* ALGORITHMS_H */

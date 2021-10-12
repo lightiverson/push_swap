@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "is.h"
 
 bool	is_in_array(const t_stack *stack, int x)
 {

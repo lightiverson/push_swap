@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "./mini_strtoi.h"
 
 static void	handle_negative(int *p_number, int *p_digit)
 {

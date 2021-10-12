@@ -1,6 +1,10 @@
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
 
+# include "../struct.h"
+# include "../gets/gets.h"
+# include "../setup_stacks/setup_stacks.h"
+
 // push.c
 void	push(t_stack *origin_stack, t_stack *destination_stack);
 
