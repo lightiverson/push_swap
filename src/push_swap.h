@@ -36,7 +36,6 @@ int mini_strtoi(const char *str);
 int get_minimum(const t_stack *stack);
 int get_maximum(const t_stack *stack);
 int get_index(const t_stack *stack, int element);
-int get_average(const t_stack *stack);
 
 // is.c
 bool is_in_array(const t_stack *stack, int x);
