@@ -22,6 +22,7 @@ int	mini_strtoi(const char *str)
 	int		number;
 	int		digit;
 
+	is_negative = false;
 	if (*str == '-')
 	{
 		is_negative = true;
