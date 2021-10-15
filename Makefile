@@ -12,8 +12,9 @@ OBJ_FILES = push_swap.o \
 			rotate.o \
 			utilities_algorithms.o \
 			sort_three.o \
-			sort_five.o
-HEADER_FILES = push_swap.h struct.h
+			sort_five.o \
+			radix_sort.o
+HEADER_FILES = push_swap.h struct.h algorithms.h
 CFLAGS = -g
 LIBFT = libft/libft.a
 

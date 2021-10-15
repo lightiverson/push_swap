@@ -13,4 +13,9 @@
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	sort_three(t_stack *stack_a);
 
+void copy_stack_a_b(t_stack *stack_a, t_stack *stack_b);
+void bubble_sort_descending(t_stack *stack_a, t_stack *stack_b);
+void convert_stack_a_to_positive_ints(t_stack *stack_a, t_stack *stack_b);
+void radix_sort(t_stack *stack_a, t_stack *stack_b);
+
 #endif /* ALGORITHMS_H */
