@@ -50,5 +50,11 @@ int	main(int argc, char *argv[])
 
 	free_stacks(&(stacks[A]), &(stacks[B]));
 
+	// test
+	// int n = 15;
+	unsigned int n = 255;
+	n = n & 0177;
+	printf("n = %d\n", n);
+
 	return (0);
 }
