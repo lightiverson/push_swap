@@ -52,7 +52,10 @@ void convert_stack_a_to_positive_ints(t_stack *stack_a, t_stack *stack_b)
 		while (j < stack_a->top)
 		{
 			if (stack_a->p_array[i] == stack_b->p_array[j])
+            {
 				stack_a->p_array[i] = j;
+                break ;
+            }
 			j++;
 		}
 		j = 0;
@@ -60,9 +63,9 @@ void convert_stack_a_to_positive_ints(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-unsigned int get_place_most_significant_set_bit(unsigned int x)
+int get_place_most_significant_set_bit(int x)
 {
-	unsigned int bits;
+	int bits;
 
 	bits = 0;
 	while (x >> bits != 0)
@@ -73,29 +76,49 @@ unsigned int get_place_most_significant_set_bit(unsigned int x)
 void radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	printf("Running radix_sort()\n");
-	// copy_stack_a_b(stack_a, stack_b);
-	// bubble_sort_descending(stack_a, stack_b);
-	// if (is_sorted(stack_b))
-	// 	printf("is_sorted == TRUE\n");
-	// else
-	// 	printf("is_sorted == FALSE\n");
-	// convert_stack_a_to_positive_ints(stack_a, stack_b);
+	copy_stack_a_b(stack_a, stack_b);
+	bubble_sort_descending(stack_a, stack_b);
+	if (is_sorted(stack_b))
+		printf("is_sorted == TRUE\n");
+	else
+		printf("is_sorted == FALSE\n");
+	int	i;
 
-	unsigned int place_most_significant_set_bit = get_place_most_significant_set_bit(36);
-	printf("place_most_significant_set_bit = %d\n", place_most_significant_set_bit);
+	i = stack_a->top;
+	printf("stack->name = %c\n", stack_b->stack_name);
+	while (i)
+	{
+		printf("[%d] = %d\n", i - 1, stack_b->p_array[i - 1]);
+		i--;
+	}
+	printf("----\n");
+	convert_stack_a_to_positive_ints(stack_a, stack_b);
+
+	int place_most_significant_set_bit = get_place_most_significant_set_bit(stack_a->top);
+	printf("place_most_significant_set_bit = %u\n", place_most_significant_set_bit);
 
 	int current_bit = 0;
 	int j = 0;
+    int top_dup = stack_a->top;
 	while (current_bit < place_most_significant_set_bit)
 	{
-		while (j < stack_a->top)
+		while (j < top_dup)
 		{
-			if ( ( ( stack_a->p_array[j] >> current_bit ) & 1 ) == 1)
+			if ( ( ( stack_a->p_array[stack_a->top - 1] >> current_bit ) & 1 ) == 1)
+            {
 				rotate_a_or_b(stack_a);
+            }
 			else
+            {
 				push(stack_a, stack_b);
+            }
 			j++;
 		}
+        while (stack_b->top)
+        {
+            push(stack_b, stack_a);
+        }
+        j = 0;
 		current_bit++;
 	}
 }
