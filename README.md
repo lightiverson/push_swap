@@ -6,6 +6,8 @@ The goal of this project is to learn how to succesfully manipulate various types
 
 ## Todo
 
+- IMPORTANT: bubble sort has a bug where it doesn't loop back inbound when comparing two elements. Use strategy from is sorted and is ordered.
+- CHANGE: mini_strtoi help functions to use int instead of int pointer and remove digit var for norm
 - Solve circular include issue with header files - Credits to Hilmy for solving this
 - ~~Create function to check stack a for duplicates, right after it is created.~~
 - ~~Replace atoi with new strtoi, which has built in checks for overflow and underflow and uses exit().~~

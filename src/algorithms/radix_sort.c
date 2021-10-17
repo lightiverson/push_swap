@@ -13,30 +13,62 @@ void copy_stack_a_b(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+// void bubble_sort_descending(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	printf("Running bubble_sort_descending()\n");
+// 	int top_dup;
+// 	int i;
+// 	int temp;
+
+// 	top_dup = stack_a->top;
+// 	i = 0;
+// 	while (top_dup)
+// 	{
+// 		while (i < top_dup)
+// 		{
+// 			if (stack_b->p_array[i] < stack_b->p_array[i + 1])
+// 			{
+// 				temp = stack_b->p_array[i + 1];
+// 				stack_b->p_array[i + 1] = stack_b->p_array[i];
+// 				stack_b->p_array[i] = temp;
+// 			}
+// 			i++;
+// 		}
+// 		i = 0;
+// 		top_dup--;
+// 	}
+// }
+
+int	alpha(const t_stack *stack_a, int index)
+{
+	if (index == stack_a->top)
+		return (0);
+	return (index);
+}
+
 void bubble_sort_descending(t_stack *stack_a, t_stack *stack_b)
 {
 	printf("Running bubble_sort_descending()\n");
-	int top_dup;
-	int i;
-	int temp;
+    int i;
+    int k;
+    int m;
+    int temp;
 
-	top_dup = stack_a->top;
-	i = 0;
-	while (top_dup)
-	{
-		while (i < top_dup)
-		{
-			if (stack_b->p_array[i] < stack_b->p_array[i + 1])
-			{
-				temp = stack_b->p_array[i + 1];
-				stack_b->p_array[i + 1] = stack_b->p_array[i];
-				stack_b->p_array[i] = temp;
-			}
-			i++;
-		}
-		i = 0;
-		top_dup--;
-	}
+    i = 0;
+    k = 0;
+    m = 1;
+    while (i < stack_a->top)
+    {
+        if (stack_b->p_array[k] > stack_b->p_array[m])
+        {
+            temp = stack_b->p_array[m];
+            stack_b->p_array[m] = stack_b->p_array[k];
+            stack_b->p_array[k] = temp;
+        }
+        k = m;
+        m = alpha(stack_a, m + 1);
+        i++;
+    }
 }
 
 void convert_stack_a_to_positive_ints(t_stack *stack_a, t_stack *stack_b)
