@@ -38,7 +38,7 @@ int	main(int argc, char *argv[])
 	initialize_stack(&(stacks[A]), argc - 1, 'a');
 	populate_stack(argc, argv, &(stacks[A]));
 	initialize_stack(&(stacks[B]), argc - 1, 'b');
-	check_for_duplicates_twee(&(stacks[A]), &(stacks[B]))
+	check_for_duplicates(&(stacks[A]), &(stacks[B]));
 	print_stack(&(stacks[A]));
 	print_stack(&(stacks[B]));
 	while (get_next_line(0, line))

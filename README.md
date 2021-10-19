@@ -46,3 +46,6 @@ make
 ## Authors
 
 - [@lightiverson](https://www.github.com/lightiverson)
+
+./push_swap -1369752606 -489451045 -1128547093 -1330092605 1805662511
+./push_swap 818594850 1644208803 -1667348749 1679837531 164266925

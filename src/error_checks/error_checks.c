@@ -30,32 +30,7 @@ void	check_for_int_and_overflow(int argc, char *argv[])
 	}
 }
 
-void	check_for_duplicates(int argc, char *argv[])
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 1;
-	while (i < argc)
-	{
-		while (j < argc)
-		{
-			if (i == j)
-			{
-				j++;
-				continue ;
-			}
-			if (!ft_strcmp(argv[i], argv[j]))
-				display_err_exit();
-			j++;
-		}
-		j = 1;
-		i++;
-	}
-}
-
-void	check_for_duplicates_twee(t_stack *stack_a, t_stack *stack_b)
+void	check_for_duplicates(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
 	int	j;

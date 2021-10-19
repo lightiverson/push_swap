@@ -13,7 +13,9 @@ OBJ_FILES = push_swap.o \
 			utilities_algorithms.o \
 			sort_three.o \
 			sort_five.o \
-			radix_sort.o
+			bubble_sort.o \
+			radix_sort.o \
+			sort_large.o
 HEADER_FILES = push_swap.h struct.h algorithms.h
 CFLAGS = -g
 LIBFT = libft/libft.a
@@ -24,7 +26,7 @@ debug: CFLAGS += -D DEBUG
 debug: $(NAME)
 
 $(NAME): $(OBJ_FILES) $(LIBFT)
-	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT)
+	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT) -fsanitize=address -g
 
 %.o: %.c $(HEADER_FILES)
 	$(CC) -c $(CFLAGS) -o $@ $<

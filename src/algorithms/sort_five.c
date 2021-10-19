@@ -62,6 +62,12 @@ static	int	get_insert_value(const t_stack *destination_stack, int origin)
 		return (insert_value);
 	}
 	insert_value = get_minimum_positive(destination_stack, p_distance_array);
+
+	if (insert_value == -1)
+	{
+		insert_value = destination_stack->p_array[0];
+	}
+
 	free(p_distance_array);
 	return (insert_value);
 }

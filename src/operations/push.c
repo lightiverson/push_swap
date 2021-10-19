@@ -13,5 +13,5 @@ void	push(t_stack *origin_stack, t_stack *destination_stack)
 	origin_stack->top--;
 	destination_stack->p_array[destination_stack->top] = first_element;
 	destination_stack->top++;
-	printf("p%c\n", origin_stack->stack_name);
+	printf("p%c\n", destination_stack->stack_name);
 }

@@ -14,7 +14,7 @@ bool	is_in_array(const t_stack *stack, int x)
 	return (false);
 }
 
-int	back_inbound(const t_stack *stack_a, int index)
+int	back_inbound_down(const t_stack *stack_a, int index)
 {
 	if (index == -1)
 		return (stack_a->top - 1);
@@ -28,8 +28,9 @@ bool	is_ordered(const t_stack *stack)
 	int	two_down;
 
 	i = 0;
-	one_down = back_inbound(stack, get_index(stack, get_minimum(stack)) - 1);
-	two_down = back_inbound(stack, one_down - 1);
+	one_down = back_inbound_down(stack,
+			get_index(stack, get_minimum(stack)) - 1);
+	two_down = back_inbound_down(stack, one_down - 1);
 	while (i < stack->top - 1 - 1)
 	{
 		if (stack->stack_name == 'a')
@@ -43,7 +44,7 @@ bool	is_ordered(const t_stack *stack)
 				return (false);
 		}
 		one_down = two_down;
-		two_down = back_inbound(stack, one_down - 1);
+		two_down = back_inbound_down(stack, one_down - 1);
 		i++;
 	}
 	return (true);
