@@ -39,15 +39,7 @@ int	main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	check_for_duplicates(&(stacks[A]), &(stacks[B]));
-
-	// print_stack(&(stacks[A]));
-	// print_stack(&(stacks[B]));
-
 	push_swap(&(stacks[A]), &(stacks[B]), argc);
-
-	// print_stack(&(stacks[A]));
-	// print_stack(&(stacks[B]));
-
 	free_stacks(&(stacks[A]), &(stacks[B]));
 	return (0);
 }

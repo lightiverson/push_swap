@@ -1,9 +1,9 @@
 #include "./algorithms.h"
 
-static	int	*create_distance_array(const t_stack *stack, int origin)
+static	long long	*create_distance_array(const t_stack *stack, int origin)
 {
 	int	i;
-	int	*p_distance_array;
+	long long	*p_distance_array;
 
 	p_distance_array = malloc(sizeof(*p_distance_array) * stack->len);
 	if (p_distance_array == NULL)
@@ -11,15 +11,18 @@ static	int	*create_distance_array(const t_stack *stack, int origin)
 		exit(EXIT_FAILURE);
 	}
 	i = 0;
-	while (i < stack->len)
+	while (i < stack->top)
 	{
-		p_distance_array[i] = stack->p_array[i] - origin;
+		p_distance_array[i] = (long long)stack->p_array[i] - origin;
+		// printf("stack->p_array[i] = %d\n", stack->p_array[i]);
+		// printf("origin = %d\n", origin);
+		// printf("p_distance_array[i] = %lld\n\n", p_distance_array[i]);
 		i++;
 	}
 	return (p_distance_array);
 }
 
-static	int	get_minimum_positive(const t_stack *stack, int *p_distance_array)
+static	int	get_minimum_positive(const t_stack *stack, long long *p_distance_array)
 {
 	int	i;
 	int	minimum_positive;
@@ -46,7 +49,7 @@ static	int	get_minimum_positive(const t_stack *stack, int *p_distance_array)
 static	int	get_insert_value(const t_stack *destination_stack, int origin)
 {
 	int	insert_value;
-	int	*p_distance_array;
+	long long	*p_distance_array;
 
 	p_distance_array = create_distance_array(destination_stack, origin);
 	if (origin < get_minimum(destination_stack))
@@ -88,6 +91,10 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	push(stack_a, stack_b);
 	push(stack_a, stack_b);
 	sort_three(stack_a);
+
+	// print_stack(stack_a);
+	// print_stack(stack_b);
+
 	insert_into_stack(stack_b, stack_a);
 	insert_into_stack(stack_b, stack_a);
 	rotate_to_top(stack_a, get_minimum(stack_a));
