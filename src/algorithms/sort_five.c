@@ -2,7 +2,7 @@
 
 static	long long	*create_distance_array(const t_stack *stack, int origin)
 {
-	int	i;
+	int			i;
 	long long	*p_distance_array;
 
 	p_distance_array = malloc(sizeof(*p_distance_array) * stack->len);
@@ -14,15 +14,13 @@ static	long long	*create_distance_array(const t_stack *stack, int origin)
 	while (i < stack->top)
 	{
 		p_distance_array[i] = (long long)stack->p_array[i] - origin;
-		// printf("stack->p_array[i] = %d\n", stack->p_array[i]);
-		// printf("origin = %d\n", origin);
-		// printf("p_distance_array[i] = %lld\n\n", p_distance_array[i]);
 		i++;
 	}
 	return (p_distance_array);
 }
 
-static	int	get_minimum_positive(const t_stack *stack, long long *p_distance_array)
+static	int	get_minimum_positive(const t_stack *stack,
+		long long *p_distance_array)
 {
 	int	i;
 	int	minimum_positive;
@@ -48,7 +46,7 @@ static	int	get_minimum_positive(const t_stack *stack, long long *p_distance_arra
 
 static	int	get_insert_value(const t_stack *destination_stack, int origin)
 {
-	int	insert_value;
+	int			insert_value;
 	long long	*p_distance_array;
 
 	p_distance_array = create_distance_array(destination_stack, origin);
@@ -65,12 +63,10 @@ static	int	get_insert_value(const t_stack *destination_stack, int origin)
 		return (insert_value);
 	}
 	insert_value = get_minimum_positive(destination_stack, p_distance_array);
-
 	if (insert_value == -1)
 	{
 		insert_value = destination_stack->p_array[0];
 	}
-
 	free(p_distance_array);
 	return (insert_value);
 }
@@ -91,10 +87,6 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	push(stack_a, stack_b);
 	push(stack_a, stack_b);
 	sort_three(stack_a);
-
-	// print_stack(stack_a);
-	// print_stack(stack_b);
-
 	insert_into_stack(stack_b, stack_a);
 	insert_into_stack(stack_b, stack_a);
 	rotate_to_top(stack_a, get_minimum(stack_a));

@@ -1,5 +1,9 @@
 #include "./checker.h"
 
+// 1. elke if in execute_operations moet een eigen functie krijgen.
+// 2. In elke eigen functie moet een check voor de return int van de operation call.
+// 3. Als de operation call 1 terug geeft -> free stacks -> exit error.
+
 void	execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
 {
 	if (!strcmp(operation, "sa"))
@@ -38,7 +42,7 @@ int	main(int argc, char *argv[])
 	initialize_stack(&(stacks[A]), argc - 1, 'a');
 	populate_stack(argc, argv, &(stacks[A]));
 	initialize_stack(&(stacks[B]), argc - 1, 'b');
-	check_for_duplicates(&(stacks[A]), &(stacks[B]));
+	exit_if_duplicate(&(stacks[A]), &(stacks[B]));
 	print_stack(&(stacks[A]));
 	print_stack(&(stacks[B]));
 	while (get_next_line(0, line))

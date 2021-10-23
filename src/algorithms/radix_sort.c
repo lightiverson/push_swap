@@ -1,6 +1,6 @@
 #include "./algorithms.h"
 
-void	copy_stack_a_b(t_stack *stack_a, t_stack *stack_b)
+void	copy_stack_a_to_b(const t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
 
@@ -12,7 +12,7 @@ void	copy_stack_a_b(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	convert_stack_a_to_positive_ints(t_stack *stack_a, t_stack *stack_b)
+void	convert_stack_a_to_positive_ints(t_stack *stack_a, const t_stack *stack_b)
 {
 	int	i;
 	int	j;
@@ -35,7 +35,7 @@ void	convert_stack_a_to_positive_ints(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int	get_place_most_significant_set_bit(int x)
+static	int	get_place_most_significant_set_bit(int x)
 {
 	int	bits;
 
@@ -45,7 +45,7 @@ int	get_place_most_significant_set_bit(int x)
 	return (bits);
 }
 
-void	radix_sort_twee(t_stack *stack_a, t_stack *stack_b)
+void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	most_significant_set_bit;
 	int	current_bit;

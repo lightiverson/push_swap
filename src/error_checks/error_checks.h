@@ -9,6 +9,6 @@
 void	display_err_exit(void);
 int		ft_strcmp(const char *s1, const char *s2);
 void	check_for_int_and_overflow(int argc, char *argv[]);
-void	check_for_duplicates(t_stack *stack_a, t_stack *stack_b);
+void	exit_if_duplicate(t_stack *stack_a, t_stack *stack_b);
 
 #endif /* ERROR_CHECKS_H */

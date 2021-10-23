@@ -6,7 +6,7 @@
 # include "../setup_stacks/setup_stacks.h"
 
 // push.c
-void	push(t_stack *origin_stack, t_stack *destination_stack);
+int		push(t_stack *origin_stack, t_stack *destination_stack);
 
 // reverse_rotate.c
 void	reverse_rotate_a_or_b(t_stack *stack);

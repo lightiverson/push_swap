@@ -1,20 +1,6 @@
 #include "is.h"
 
-bool	is_in_array(const t_stack *stack, int x)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->top)
-	{
-		if (x == stack->p_array[i])
-			return (true);
-		i++;
-	}
-	return (false);
-}
-
-int	back_inbound_down(const t_stack *stack_a, int index)
+static	int	back_inbound_down(const t_stack *stack_a, int index)
 {
 	if (index == -1)
 		return (stack_a->top - 1);

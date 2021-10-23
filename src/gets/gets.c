@@ -1,4 +1,3 @@
-// #include "push_swap.h"
 #include "gets.h"
 
 int	get_minimum(const t_stack *stack)

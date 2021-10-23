@@ -3,9 +3,7 @@
 void	push_swap(t_stack *stack_a, t_stack *stack_b, int argc)
 {
 	if (is_sorted(stack_a))
-	{
 		return ;
-	}
 	if (is_ordered(stack_a))
 	{
 		rotate_to_top(stack_a, get_minimum(stack_a));
@@ -38,8 +36,12 @@ int	main(int argc, char *argv[])
 		free(&(stacks[A]).p_array);
 		exit(EXIT_FAILURE);
 	}
-	check_for_duplicates(&(stacks[A]), &(stacks[B]));
+	exit_if_duplicate(&(stacks[A]), &(stacks[B]));
 	push_swap(&(stacks[A]), &(stacks[B]), argc);
+
+	print_stack(&(stacks[A]));
+	print_stack(&(stacks[B]));
+
 	free_stacks(&(stacks[A]), &(stacks[B]));
 	return (0);
 }

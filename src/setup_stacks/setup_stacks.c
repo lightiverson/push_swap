@@ -1,4 +1,3 @@
-// #include "../push_swap.h"
 #include "setup_stacks.h"
 
 void	print_stack(const t_stack *stack)
