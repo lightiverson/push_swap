@@ -16,8 +16,17 @@ OBJ_FILES = push_swap.o \
 			bubble_sort.o \
 			radix_sort.o \
 			sort_large.o
-HEADER_FILES = push_swap.h struct.h algorithms.h
-CFLAGS = -g
+HEADER_FILES =	push_swap.h \
+				struct.h \
+				algorithms.h \
+				error_checks.h \
+				gets.h \
+				is.h \
+				mini_strtoi.h \
+				operations.h \
+				setup_stacks.h \
+				utilities_algorithms.h
+CFLAGS = -Wall -Wextra -Werror -g
 LIBFT = libft/libft.a
 
 all: $(NAME)

@@ -11,12 +11,11 @@
 # include "./gets/gets.h"
 # include "./algorithms/algorithms.h"
 # include "./struct.h"
-// # include "./operations/operations.h"
 
 # define A   0
 # define B   1
 
 // push_swap.c
-// void	push_swap(void);
+void	push_swap(t_stack *stack_a, t_stack *stack_b, int argc);
 
 #endif /* PUSH_SWAP_H */
