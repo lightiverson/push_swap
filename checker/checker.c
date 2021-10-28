@@ -6,7 +6,8 @@ static	void	free_display_err_exit(t_stack *stack_a, t_stack *stack_b)
 	display_err_exit();
 }
 
-static	void	execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
+static	void	execute_operations(t_stack *stack_a, t_stack *stack_b,
+		char *operation)
 {
 	if (!ft_strcmp(operation, "sa"))
 		swap_a_or_b(stack_a);
