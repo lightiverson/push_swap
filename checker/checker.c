@@ -34,9 +34,10 @@ void	execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
 int	main(int argc, char *argv[])
 {
 	t_stack	stacks[2];
-	char	**line;
+	char	*line;
 	int		is_malloc_failed;
 
+	line = NULL;
 	is_malloc_failed = 0;
 	if (argc <= 1)
 		exit(EXIT_FAILURE);
@@ -56,8 +57,8 @@ int	main(int argc, char *argv[])
 	// print_stack(&(stacks[A]));
 	// print_stack(&(stacks[B]));
 
-	while (get_next_line(0, line))
-		execute_operations(&(stacks[A]), &(stacks[B]), *line);
+	while (get_next_line(0, &line))
+		execute_operations(&(stacks[A]), &(stacks[B]), line);
 
 	// print_stack(&(stacks[A]));
 	// print_stack(&(stacks[B]));
