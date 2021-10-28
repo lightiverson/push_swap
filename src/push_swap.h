@@ -1,7 +1,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// Check welke libraries mogen!!!
 # include <stdio.h>
 # include "../libft/libft.h"
 # include "./error_checks/error_checks.h"

@@ -4,7 +4,6 @@ int	push(t_stack *origin_stack, t_stack *destination_stack)
 {
 	int	first_element;
 
-	// printf("p%c\n", destination_stack->stack_name);
 	write(1, "p", 1);
 	write(1, &(destination_stack->stack_name), 1);
 	write(1, "\n", 1);

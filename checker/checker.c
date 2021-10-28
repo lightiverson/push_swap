@@ -1,5 +1,11 @@
 #include "./checker.h"
 
+void	free_display_err_exit(t_stack *stack_a, t_stack *stack_b)
+{
+	free_stacks(stack_a, stack_b);
+	display_err_exit();
+}
+
 void	execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
 {
 	if (!strcmp(operation, "sa"))
@@ -25,10 +31,15 @@ void	execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
 	else if (!strcmp(operation, "rrr"))
 		reverse_rotate_ab(stack_a, stack_b);
 	else
-	{
-		free_stacks(stack_a, stack_b);
-		display_err_exit();
-	}
+		free_display_err_exit(stack_a, stack_b);
+}
+
+void	write_ok_or_ko(t_stack *stack_a, t_stack *stack_b)
+{
+	if (is_sorted(stack_a) && stack_b->top == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 }
 
 int	main(int argc, char *argv[])
@@ -53,19 +64,8 @@ int	main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	exit_if_duplicate(&(stacks[A]), &(stacks[B]));
-
-	// print_stack(&(stacks[A]));
-	// print_stack(&(stacks[B]));
-
 	while (get_next_line(0, &line))
 		execute_operations(&(stacks[A]), &(stacks[B]), line);
-
-	// print_stack(&(stacks[A]));
-	// print_stack(&(stacks[B]));
-
-	if (is_sorted(&(stacks[A])) && stacks[B].top == 0)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
+	write_ok_or_ko(&(stacks[A]), &(stacks[B]));
 	return (0);
 }

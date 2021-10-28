@@ -1,19 +1,5 @@
 #include "setup_stacks.h"
 
-void	print_stack(const t_stack *stack)
-{
-	int	i;
-
-	i = stack->top;
-	printf("stack->name = %c\n", stack->stack_name);
-	while (i)
-	{
-		printf("[%d] = %d\n", i - 1, stack->p_array[i - 1]);
-		i--;
-	}
-	printf("----\n");
-}
-
 void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 {
 	free(stack_a->p_array);
