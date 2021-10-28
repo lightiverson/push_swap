@@ -13,7 +13,7 @@ OBJ_FILES = checker.o \
 			push.o \
 			rotate.o
 HEADER_FILES =	checker.h
-CFLAGS = -g
+CFLAGS = -Wall -Wextra -Werror -g
 LIBFT = ../libft/libft.a
 
 all: $(NAME)
