@@ -21,12 +21,16 @@ static int	rotate(t_stack *stack)
 void	rotate_a_or_b(t_stack *stack)
 {
 	rotate(stack);
-	printf("r%c\n", stack->stack_name);
+	// printf("r%c\n", stack->stack_name);
+	write(1, "r", 1);
+	write(1, &(stack->stack_name), 1);
+	write(1, "\n", 1);
 }
 
 void	rotate_ab(t_stack *stack_a, t_stack *stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	printf("rr\n");
+	// printf("rr\n");
+	write(1, "rr\n", 3);
 }
