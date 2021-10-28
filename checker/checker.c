@@ -1,40 +1,40 @@
 #include "./checker.h"
 
-void	free_display_err_exit(t_stack *stack_a, t_stack *stack_b)
+static	void	free_display_err_exit(t_stack *stack_a, t_stack *stack_b)
 {
 	free_stacks(stack_a, stack_b);
 	display_err_exit();
 }
 
-void	execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
+static	void	execute_operations(t_stack *stack_a, t_stack *stack_b, char *operation)
 {
-	if (!strcmp(operation, "sa"))
+	if (!ft_strcmp(operation, "sa"))
 		swap_a_or_b(stack_a);
-	else if (!strcmp(operation, "sb"))
+	else if (!ft_strcmp(operation, "sb"))
 		swap_a_or_b(stack_b);
-	else if (!strcmp(operation, "ss"))
+	else if (!ft_strcmp(operation, "ss"))
 		swap_ab(stack_a, stack_b);
-	else if (!strcmp(operation, "pa"))
+	else if (!ft_strcmp(operation, "pa"))
 		push(stack_b, stack_a);
-	else if (!strcmp(operation, "pb"))
+	else if (!ft_strcmp(operation, "pb"))
 		push(stack_a, stack_b);
-	else if (!strcmp(operation, "ra"))
+	else if (!ft_strcmp(operation, "ra"))
 		rotate_a_or_b(stack_a);
-	else if (!strcmp(operation, "rb"))
+	else if (!ft_strcmp(operation, "rb"))
 		rotate_a_or_b(stack_b);
-	else if (!strcmp(operation, "rr"))
+	else if (!ft_strcmp(operation, "rr"))
 		rotate_ab(stack_a, stack_b);
-	else if (!strcmp(operation, "rra"))
+	else if (!ft_strcmp(operation, "rra"))
 		reverse_rotate_a_or_b(stack_a);
-	else if (!strcmp(operation, "rrb"))
+	else if (!ft_strcmp(operation, "rrb"))
 		reverse_rotate_a_or_b(stack_b);
-	else if (!strcmp(operation, "rrr"))
+	else if (!ft_strcmp(operation, "rrr"))
 		reverse_rotate_ab(stack_a, stack_b);
 	else
 		free_display_err_exit(stack_a, stack_b);
 }
 
-void	write_ok_or_ko(t_stack *stack_a, t_stack *stack_b)
+static	void	write_ok_or_ko(t_stack *stack_a, t_stack *stack_b)
 {
 	if (is_sorted(stack_a) && stack_b->top == 0)
 		write(1, "OK\n", 3);
