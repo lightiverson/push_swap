@@ -1,4 +1,12 @@
-VPATH = ./src:./src/error_checks:./src/mini_strtoi:./src/setup_stacks:./src/gets:./src/is:./src/utilities_algorithms:./src/algorithms:./src/operations
+VPATH = ./src:\
+		./src/error_checks:\
+		./src/mini_strtoi:\
+		./src/setup_stacks:\
+		./src/gets:\
+		./src/is:\
+		./src/utilities_algorithms:\
+		./src/algorithms:\
+		./src/operations
 NAME = push_swap
 OBJ_FILES = push_swap.o \
 			setup_stacks.o \
@@ -26,7 +34,7 @@ HEADER_FILES =	push_swap.h \
 				operations.h \
 				setup_stacks.h \
 				utilities_algorithms.h
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
 
 all: $(NAME)
@@ -35,7 +43,7 @@ debug: CFLAGS += -D DEBUG
 debug: $(NAME)
 
 $(NAME): $(OBJ_FILES) $(LIBFT)
-	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT) -fsanitize=address -g
+	$(CC) -o $(NAME) $(OBJ_FILES) $(LIBFT)
 
 %.o: %.c $(HEADER_FILES)
 	$(CC) -c $(CFLAGS) -o $@ $<

@@ -6,9 +6,9 @@ The goal of this project is to learn how to succesfully manipulate various types
 
 ## Todo
 
-- IMPORTANT: bubble sort has a bug where it doesn't loop back inbound when comparing two elements. Use strategy from is sorted and is ordered.
-- CHANGE: mini_strtoi help functions to use int instead of int pointer and remove digit var for norm
-- Solve circular include issue with header files - Credits to Hilmy for solving this
+- ~~IMPORTANT: bubble sort has a bug where it doesn't loop back inbound when comparing two elements. Use strategy from is sorted and is ordered.~~
+- ~~CHANGE: mini_strtoi help functions to use int instead of int pointer and remove digit var for norm~~
+- ~~Solve circular include issue with header files - Credits to Hilmy for solving this~~
 - ~~Create function to check stack a for duplicates, right after it is created.~~
 - ~~Replace atoi with new strtoi, which has built in checks for overflow and underflow and uses exit().~~
 - ~~Replace sort_three function with beta function. Make sure stacks of three are sorted correctly within two moves.~~
@@ -46,8 +46,3 @@ make
 ## Authors
 
 - [@lightiverson](https://www.github.com/lightiverson)
-
-./push_swap -1369752606 -489451045 -1128547093 -1330092605 1805662511
-./push_swap 818594850 1644208803 -1667348749 1679837531 164266925
-
-./push_swap 818594850 1644208803 -1667348749 1679837531 164266925 | ./checker_Mac 818594850 1644208803 -1667348749 1679837531 164266925

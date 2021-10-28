@@ -1,4 +1,12 @@
-VPATH = ../src:../src/operations:../src/algorithms:../src/error_checks:../src/setup_stacks:./get_next_line:../src/mini_strtoi:../src/is:../src/gets
+VPATH = ./operations:\
+		../src:\
+		../src/algorithms:\
+		../src/error_checks:\
+		../src/setup_stacks:\
+		./get_next_line:\
+		../src/mini_strtoi:\
+		../src/is:\
+		../src/gets
 NAME = checker
 OBJ_FILES = checker.o \
 			setup_stacks.o \
@@ -12,8 +20,8 @@ OBJ_FILES = checker.o \
 			swap.o \
 			push.o \
 			rotate.o
-HEADER_FILES =	checker.h
-CFLAGS = -Wall -Wextra -Werror -g
+HEADER_FILES =	checker.h operations.h get_next_line.h
+CFLAGS = -Wall -Wextra -Werror
 LIBFT = ../libft/libft.a
 
 all: $(NAME)
