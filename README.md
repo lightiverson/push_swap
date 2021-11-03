@@ -1,48 +1,37 @@
 # Push_swap
-
 This project sorts integers on a stack datatype, with a limited set of instructions.
 
 The goal of this project is to learn how to succesfully manipulate various types of searching/sorting algorithms. And to choose the most appropriate solution for your complexity needs.
 
-## Todo
-
-- ~~IMPORTANT: bubble sort has a bug where it doesn't loop back inbound when comparing two elements. Use strategy from is sorted and is ordered.~~
-- ~~CHANGE: mini_strtoi help functions to use int instead of int pointer and remove digit var for norm~~
-- ~~Solve circular include issue with header files - Credits to Hilmy for solving this~~
-- ~~Create function to check stack a for duplicates, right after it is created.~~
-- ~~Replace atoi with new strtoi, which has built in checks for overflow and underflow and uses exit().~~
-- ~~Replace sort_three function with beta function. Make sure stacks of three are sorted correctly within two moves.~~
-- ~~Create new sort_five function that uses pa + pa + sort_three(stack_a) + [[ new functions written to merge from stack_b into stack_a ]]~~
-
-## FAQ
-How to execute push_swap with random arguments:
-ARGS=$(shuf -i 0-10000 -n 5 | tr '\n' ' '); ./push_swap $(echo $ARGS)
-ARGS=$(shuf -i 0-10000 -n 5 | tr '\n' ' '); ./push_swap $(echo $ARGS) | wc -l
-
 #### Result
+109%
 
-Tbd
-
-#### Status
-
-In progress
+## Features
+- Uses a variation on Radix sort for larger stacks (also uses Bubble sort as a helper function)
+- Uses a custom algorithm (somewhat mix of Insertion sort and Merge sort)
+- Includes a self made checker for bonus
 
 ## Installation
-
 Clone this repo
-
 ```bash
-  git clone https://github.com/lightiverson/push_swap.git
-  cd push_swap
+    git clone https://github.com/lightiverson/push_swap.git
+    cd push_swap
+    make
 ```
 
 ## Usage/Examples
-
+Execute push swap
 ```bash
-make
-./push_swap
+    ./push_swap 0 2 1
 ```
 
-## Authors
+Execute checker
+```bash
+    cd checker
+    make
+    ../push_swap 0 2 1 | ./checker 0 2 1
+```
 
-- [@lightiverson](https://www.github.com/lightiverson)
+## Appendix
+
+A more detailed explanation of the assignment can be found in the [assignment sheet](en.subject.pdf).
