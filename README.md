@@ -31,7 +31,3 @@ Execute checker
     make
     ../push_swap 0 2 1 | ./checker 0 2 1
 ```
-
-## Appendix
-
-A more detailed explanation of the assignment can be found in the [assignment sheet](en.subject.pdf).
